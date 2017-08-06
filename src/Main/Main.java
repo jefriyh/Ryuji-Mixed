@@ -54,7 +54,7 @@ public class Main {
         boolean opening = true;
         String userWords = null;
         while (opening) {
-            System.out.println("[STATE APP] : " + state);
+            System.out.println("[SPeech Running] : " + speechRecognition.isSpeechRecognitionRunning());
             if (speechRecognition.isSpeechRecognitionRunning()) {
                 userWords = speechRecognition.getCurentUserWords();
             }
@@ -101,11 +101,13 @@ public class Main {
                 speechRecognition.openSpeechRecognition();
                 state = "conversation";
             } else if (state.equals("conversation")) {
+                System.out.println("user words :" + userWords);
                 speechRecognition.openSpeechRecognition();
                 if (userWords != null) {
                     if (ryuji.isCommand(userWords)) {
                         state = "command";
                     } else {
+                        
                         speechRecognition.start(userWords);
                     }
                 } else {
