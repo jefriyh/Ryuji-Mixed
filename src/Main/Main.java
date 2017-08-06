@@ -93,6 +93,9 @@ public class Main {
                         if(regd != "NO1" && regd != "NO2" && regd!="NO3" && regd !="REGD"){
                          name= regd;   
                         }
+                        else if ( regd != "NO1"){
+                            speechRecognition.getSpeechInstance().speak("the person you are looking for is not found");
+                        }
                         else{
                             name = "";
                         }
@@ -106,7 +109,7 @@ public class Main {
                         name = name.replace("MISTER", "MISTER ");//"MISTER "+name.substring(6);
                     } else {
                         name = null;
-                         speechRecognition.getSpeechInstance().speak("the person you are looking for is not found");
+                        
                     }
                     
                 }
