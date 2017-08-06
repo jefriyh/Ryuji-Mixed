@@ -58,7 +58,8 @@ public class Ryuji {
         
         SymbolFactory symbolFactory = new SymbolFactory(new SimpleKeywordChecker(banWords, auxWords));
         splitter = new WordNonwordSplitter(symbolFactory);
-      model = new Model();
+
+        model = new Model();
 
         BufferedReader reader = new BufferedReader(new FileReader(home+"/data/megahal2.trn"));
         String line;
@@ -175,7 +176,12 @@ public class Ryuji {
     public String formulateReply(String userText) {
 
         // Split the user's line into symbols.
-        List<Symbol> userWords = splitter.split(userText.toUpperCase());
+        List<Symbol> userWords;
+        try {
+            userWords = splitter.split(userText.toUpperCase());
+        } catch(Exception e){
+            return null;
+        }
         
         // Train the brain from the user's list of symbols.
         model.train(userWords);
@@ -208,9 +214,15 @@ public class Ryuji {
         List<Symbol> bestReply = null;
         int timeToTake = 1000 * 5; // 5 seconds.
         long t0 = System.currentTimeMillis();
+        
         while (System.currentTimeMillis() - t0 < timeToTake) {
             //System.out.print("Generating... ");
-            List<Symbol> candidateReply = model.generateRandomSymbols(rng, userKeywords);
+            List<Symbol> candidateReply;
+            try{
+                candidateReply = model.generateRandomSymbols(rng, userKeywords);
+            } catch (Exception e){
+                return null;
+            }
             //candidateCount++;
             //System.out.println("Candidate: " + candidateReply);
 
@@ -228,6 +240,4 @@ public class Ryuji {
         // Return the generated string, tacked back together.
         return (bestReply == null) ? null : splitter.join(bestReply);
     }
-    
-   
 }
