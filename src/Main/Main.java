@@ -121,6 +121,7 @@ public class Main {
                     if (ryuji.isCommand(userWords) || userWords.toLowerCase().contains("find")) {
                         state = "command";
                         name = null;
+                        speechRecognition.start(userWords);
                         speechRecognition.closeSpeechRecognition();
                         first = true;
                         System.out.println("[state ryuji] :"+state);
