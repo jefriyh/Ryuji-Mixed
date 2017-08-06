@@ -68,6 +68,7 @@ public class Main {
             }
             System.out.println("[Name] : " + name);
             if ((state.equals("socket")) && (name == null)) {
+                System.out.println("[First] : " + first);
                 if (first == true) {
                     if (!secondRun) {
                       clientSocket.runMessage("REG;JAVA;");
@@ -78,8 +79,10 @@ public class Main {
                     first = false;
                     System.out.println("[Begin STate] : "+ state);
                 } else {
+                    
                     name = clientSocket.getMessage().toUpperCase();
                     //System.out.println("name: "+name);
+                    System.out.println("[Get Name] : " + name);
                     if (name.contains("MISS")) {
                         name = name.replace("MISS", "MISS ");//"MISS "+name.substring(4);
                     } else if (name.contains("MISTER")) {
