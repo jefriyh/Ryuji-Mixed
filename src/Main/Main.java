@@ -87,6 +87,7 @@ public class Main {
                      secondRun = true;
                      System.out.println("[Get Data Name] : " + name);
                     } else {
+                        state = "greeting";
                         name = "";
                     }                    
                     //System.out.println("name: "+name);
