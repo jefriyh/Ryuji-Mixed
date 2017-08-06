@@ -171,6 +171,9 @@ public class SpeechRecognition extends Speech {
         if (show_response == 1) {
             String result = text;
             for (int i = 0; i < response.size(); i++) {
+                if (!result.equals(text)) {
+                    break;
+                }
                 for (int j = 0; j < response.get(i).size(); j++) {
                     String commandType = response.getCommandType(i, j);
                     if (text.toLowerCase().contains(commandType)) {
@@ -180,9 +183,6 @@ public class SpeechRecognition extends Speech {
                         person = "Bot >> ";
                         break;
                     }
-                }
-                if (!result.equals(text)) {
-                    break;
                 }
              }
             return new String[]{person, result};
