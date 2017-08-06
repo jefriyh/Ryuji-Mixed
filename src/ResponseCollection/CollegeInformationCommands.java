@@ -13,9 +13,9 @@ import java.util.ArrayList;
  * @author alvian
  */
 public enum CollegeInformationCommands {
-    WHAT_1("what ", "what is the vision of gunadarma university ?", "", ActionType.COLLEGE_INFORMATION_WHAT.id()),
-    WHO_1("who", "who are you", "", ActionType.COLLEGE_INFORMATION_WHO.id()),
-    WHO_2("who", "who is the rector gunadarma ?", "", ActionType.COLLEGE_INFORMATION_WHO.id()),
+//    WHAT_1("what ", "what is the vision of gunadarma university ?", "", ActionType.COLLEGE_INFORMATION_WHAT.id()),
+//    WHO_1("who", "who are you", "", ActionType.COLLEGE_INFORMATION_WHO.id()),
+//    WHO_2("who", "who is the rector gunadarma ?", "", ActionType.COLLEGE_INFORMATION_WHO.id()),
     WHAT_2("what ", "what is the meaning of the name gunadarma university ?", "", ActionType.COLLEGE_INFORMATION_WHAT.id()),
     WHAT_3("what ", "what defines gunadarma ?", "", ActionType.COLLEGE_INFORMATION_WHAT.id()),
     WHAT_4("what ", "what is the mission of gunadarma ?", "", ActionType.COLLEGE_INFORMATION_WHAT.id()),
