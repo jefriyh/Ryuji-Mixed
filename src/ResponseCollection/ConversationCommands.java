@@ -28,6 +28,9 @@ public enum ConversationCommands {
         this.response = response;
     }
     
+    
+    
+    
     public static ArrayList items(){
         ArrayList<ArrayList> items = new ArrayList();
         for(int i=0;i<values().length;i++){

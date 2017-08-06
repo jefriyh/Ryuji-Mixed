@@ -20,7 +20,7 @@ public class ClientSocket {
      * @param args command-line arguments (ignored.)
      */
     public final String host = "localhost";
-    public final String portNumber = "1500";
+    public final String portNumber = "8888";
     public Client client;
     public Socket echoSocket;
     public PrintWriter outPrint;
