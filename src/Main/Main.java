@@ -52,10 +52,13 @@ public class Main {
                 } else {
                     name = clientSocket.getMessage().toUpperCase();
                     
-                    if (name.contains("MISS")) {
+                    //System.out.println("name: "+name);
+                    if (name.contains("MISS")){
                         name = name.replace("MISS", "MISS ");//"MISS "+name.substring(4);
-                    } else {
+                    } else if (name.contains("MISTER")){
                         name = name.replace("MISTER", "MISTER ");//"MISTER "+name.substring(6);
+                    } else {
+                        name = null;
                     }
                     state = "greeting";
                 }
