@@ -181,7 +181,10 @@ public class SpeechRecognition extends Speech {
                         break;
                     }
                 }
-            }
+                if (!result.equals(text)) {
+                    break;
+                }
+             }
             return new String[]{person, result};
         } else {
             return new String[]{person, text};
