@@ -13,17 +13,7 @@
         </group>
         <group name="clips"/>
         <group>
-            <file>file:/home/jefri/NetBeansProjects/Robot-offline-speech-recognition/src/Dictionary/dictionary.gram</file>
-            <file>file:/home/jefri/NetBeansProjects/Robot-offline-speech-recognition/src/Dictionary/sample_2.gram</file>
-            <file>file:/home/jefri/NetBeansProjects/Robot-offline-speech-recognition/src/Main/Main.java</file>
-            <file>file:/home/jefri/NetBeansProjects/Robot-offline-speech-recognition/src/library/TagMatch.java</file>
-            <file>file:/home/jefri/NetBeansProjects/Robot-offline-speech-recognition/src/Main/config.xml</file>
-            <file>file:/home/jefri/NetBeansProjects/Robot-offline-speech-recognition/src/Dictionary/sample_1.gram</file>
-            <file>file:/home/jefri/NetBeansProjects/Robot-offline-speech-recognition/src/library/Client.java</file>
-            <file>file:/home/jefri/NetBeansProjects/Robot-offline-speech-recognition/src/ResponseCollection/Actions/FindPeople.java</file>
-            <file>file:/home/jefri/NetBeansProjects/Robot-offline-speech-recognition/src/library/Response.java</file>
-            <file>file:/home/jefri/NetBeansProjects/Robot-offline-speech-recognition/src/ResponseCollection/FindPeopleCommands.java</file>
-            <file>file:/home/jefri/NetBeansProjects/Robot-offline-speech-recognition/src/library/SpeechRecognition.java</file>
+            <file>file:/home/jefri/NetBeansProjects/RyujiMix/src/library/SpeechRecognition.java</file>
         </group>
     </open-files>
 </project-private>
