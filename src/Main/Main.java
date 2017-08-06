@@ -48,7 +48,7 @@ public class Main {
                 if (first == true) {
                     clientSocket.runMessage("REG;JAVA;");
                     first = false;
-                    // state = "wait_init";                  
+                     state = "wait_init";                  
                 } else {
                     name = clientSocket.getMessage().toUpperCase();
                     
