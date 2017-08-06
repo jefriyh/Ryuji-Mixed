@@ -5,11 +5,8 @@
  */
 package ResponseCollection.Actions;
 
-import java.io.IOException;
-import java.util.Arrays;
 import library.SpeechRecognition;
 import library.TagMatch;
-import ryuji.Ryuji;
 
 /**
  *
@@ -18,24 +15,25 @@ import ryuji.Ryuji;
 public class CollegeInformation {
 
     public CollegeInformation(SpeechRecognition speech, String header, String words) {
-        try {
-//            TagMatch matchers = new TagMatch();
-            Ryuji ryuji = new Ryuji();
-            String answer = ryuji.formulateReply(words);
-            if (answer != null) {
-                System.out.println("[RYUJI] : " + answer);
-                speech.speak(answer);
-            }
-//            matchers.setDataSet("/base-data/");
-//            String[] tags = words.split(" ");
-//            String response = matchers.getMatch(1, header, tags);
-//            System.out.println("[Machine Learning] question : " + words);
-//            System.out.println("[Machine Learning] answer   : " + response);
-//            if (response != null) {
-//                speech.speak(response);
+//        try {
+        //            Ryuji ryuji = new Ryuji();
+//            String answer = ryuji.formulateReply(words);
+//            if (answer != null) {
+//                System.out.println("[RYUJI] : " + answer);
+//                speech.speak(answer);
 //            }
-        } catch (IOException e) {
 
+//        } catch (IOException e) {
+//
+//        }
+        TagMatch matchers = new TagMatch();
+        matchers.setDataSet("/base-data/");
+        String[] tags = words.split(" ");
+        String response = matchers.getMatch(1, header, tags);
+        System.out.println("[Machine Learning] question : " + words);
+        System.out.println("[Machine Learning] answer   : " + response);
+        if (response != null) {
+            speech.speak(response);
         }
     }
 }
