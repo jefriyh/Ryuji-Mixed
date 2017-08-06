@@ -116,12 +116,14 @@ public class Main {
                 userWords = speechRecognition.getUserWords();
                 System.out.println("user words :" + userWords);
                 speechRecognition.openSpeechRecognition();
+                System.out.println("[words]" + userWords);
                 if (userWords != null) {
                     if (ryuji.isCommand(userWords)) {
                         state = "command";
                         name = null;
                         speechRecognition.closeSpeechRecognition();
                         first = true;
+                        System.out.println("[state ryuji] :"+state);
                     } 
                     else if(userWords.contains("good bye")){
                         speechRecognition.getSpeechInstance().speak("Bye Bye "+name);
