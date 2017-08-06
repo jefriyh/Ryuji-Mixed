@@ -50,6 +50,7 @@ public class Main {
             }
         });
         String name = null;
+        String regd = null;
         String state = "socket";
         boolean first = true;
         Ryuji ryuji = new Ryuji();
@@ -87,8 +88,16 @@ public class Main {
                      secondRun = true;
                      System.out.println("[Get Data Name] : " + name);
                     } else {
+                        
                         state = "greeting";
-                        name = "";
+                        if(regd != "NO2" && regd!="NO3" && regd !="REGD"){
+                         name= regd;   
+                        }
+                        else{
+                            
+                            name = "";
+                        }
+                        
                     }                    
                     //System.out.println("name: "+name);
                     
@@ -98,12 +107,13 @@ public class Main {
                         name = name.replace("MISTER", "MISTER ");//"MISTER "+name.substring(6);
                     } else {
                         name = null;
+                         speechRecognition.getSpeechInstance().speak("the person you are looking for is not found");
                     }
                     
                 }
             } else if (state.equals("wait_init")) {
                 System.out.println("[ending STate] : "+ state);
-                String regd;
+                regd= null;
                 do {
                     regd = clientSocket.getMessage().toUpperCase();
                     System.out.println(regd);
