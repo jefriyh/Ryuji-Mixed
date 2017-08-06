@@ -72,17 +72,22 @@ public class Main {
                 if (first == true) {
                     if (!secondRun) {
                       clientSocket.runMessage("REG;JAVA;");
-                      secondRun = true;
+//                      secondRun = true;
                  
                     }
                      state = "wait_init";   
                     first = false;
                     System.out.println("[Begin STate] : "+ state);
                 } else {
-                    
-                    name = clientSocket.getMessage().toUpperCase();
+                    System.out.println("[Get First Name] : " + name);
+                    if (!secondRun) {
+                     name = clientSocket.getMessage().toUpperCase();
+                     state = "greeting";
+                     secondRun = true;
+                     System.out.println("[Get Data Name] : " + name);
+                    }                    
                     //System.out.println("name: "+name);
-                    System.out.println("[Get Name] : " + name);
+                    
                     if (name.contains("MISS")) {
                         name = name.replace("MISS", "MISS ");//"MISS "+name.substring(4);
                     } else if (name.contains("MISTER")) {
@@ -90,7 +95,7 @@ public class Main {
                     } else {
                         name = null;
                     }
-                    state = "greeting";
+                    
                 }
             } else if (state.equals("wait_init")) {
                 System.out.println("[ending STate] : "+ state);
@@ -134,6 +139,7 @@ public class Main {
                         System.out.println("[state ryuji] :"+state);
                     } 
                     else if(userWords.contains("good bye")){
+                        secondRun = false;
                         speechRecognition.getSpeechInstance().speak("Bye Bye "+name);
                         state = "command";
                         name = null;
