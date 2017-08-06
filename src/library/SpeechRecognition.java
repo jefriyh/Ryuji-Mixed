@@ -171,7 +171,9 @@ public class SpeechRecognition extends Speech {
         if (show_response == 1) {
             String result = text;
             for (int i = 0; i < response.size(); i++) {
+                System.out.println("[Recognition] : checking output...");
                 if (!result.equals(text)) {
+                    System.out.println("[recognition] : output taken");
                     break;
                 }
                 for (int j = 0; j < response.get(i).size(); j++) {
