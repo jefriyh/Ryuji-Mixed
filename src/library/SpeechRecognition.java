@@ -246,16 +246,20 @@ public class SpeechRecognition extends Speech {
     private boolean open_app = false;
 
     public String getUserWords() {
-        System.out.println("Recognition Looping...");
-        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-        response.ListCommand();
-        Result result = recognizer.recognize();
-        String resultText = result.getBestFinalResultNoFiller();
-        System.out.println("[Words] : " + resultText);
-        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-        if (resultText != null) {
-            return resultText;
-        } else {
+        try {
+            System.out.println("Recognition Looping...");
+            System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+            response.ListCommand();
+            Result result = recognizer.recognize();
+            String resultText = result.getBestFinalResultNoFiller();
+            System.out.println("[Words] : " + resultText);
+            System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+            if (resultText != null) {
+                return resultText;
+            } else {
+                return "";
+            }   
+        } catch (Exception e) {
             return "";
         }
     }
