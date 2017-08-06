@@ -29,6 +29,7 @@ public class MachineLearning {
             System.out.println("[OVERRIDE WITH] : " + question);
             System.out.println("[REQUEST] : " + question);
             System.out.println("[RYUJI] : thinking...");
+            speech.speak("wait a second");
             answer = ryuji.formulateReply(question);
             if (answer != null) {
                 System.out.println("[RYUJI] : " + answer);

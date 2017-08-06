@@ -5,6 +5,7 @@
  */
 package ResponseCollection;
 
+import ResponseCollection.Actions.ActionType;
 import java.util.ArrayList;
 
 /**
@@ -15,17 +16,19 @@ public enum ConversationCommands {
 //    RYUJI("ryuji", "hello too"),
 //    HI("hi", "hello too"),
 //    HELLO("hello", "hello too"),
-    NICE_TO_MEET_YOU("nice to meet you", "nice to meet you too"),
-    CAN_YOU_HELP("can you help", "what can i do for you"),
-    THANKS("thank", "you are welcome");
+    NICE_TO_MEET_YOU("nice to meet you", "nice to meet you too", ActionType.NICE_TO_MEET_YOU.id()),
+    CAN_YOU_HELP("can you help", "what can i do for you", ActionType.CAN_YOU_HELP.id()),
+    GOOD_BYE("good bye", "good bye", ActionType.GOOD_BYE.id());
     
     private final String title = "Conversation";
     private final String said;
     private final String response;
+    private final int action;
         
-    ConversationCommands(String said, String response){
+    ConversationCommands(String said, String response, int action){
         this.said = said;
         this.response = response;
+        this.action = action;
     }
     
     
@@ -37,6 +40,7 @@ public enum ConversationCommands {
             ArrayList item = new ArrayList();
             item.add(values()[i].said);
             item.add(values()[i].response);
+            item.add(values()[i].action);
             item.add(values()[i].title);
             items.add(item);
         }

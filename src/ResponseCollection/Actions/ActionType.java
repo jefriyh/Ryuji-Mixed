@@ -47,7 +47,11 @@ public enum ActionType {
     FIND_MISTER_MUSA(29),
     
     MACHINE_LEARNING_WHAT(30),
-    MACHINE_LEARNING_WHO(31);
+    MACHINE_LEARNING_WHO(31),
+    
+    NICE_TO_MEET_YOU(32),
+    CAN_YOU_HELP(33),
+    GOOD_BYE(34);
 
     private final int type;
 
@@ -92,5 +96,8 @@ public enum ActionType {
         if(type == ActionType.FIND_MISTER_MUSA.id()){FindPeople.find(clientSocket, FindPeople.People.MISTER_MUSA);}
         if(type == ActionType.MACHINE_LEARNING_WHAT.id()){new MachineLearning(speech, userWords);}
         if(type == ActionType.MACHINE_LEARNING_WHO.id()){new MachineLearning(speech, userWords);}
+        if(type == ActionType.NICE_TO_MEET_YOU.id()){Conversation.tell(clientSocket, Conversation.Speak.NICE_TO_MEET_YOU);}
+        if(type == ActionType.CAN_YOU_HELP.id()){Conversation.tell(clientSocket, Conversation.Speak.CAN_YOU_HELP_ME);}
+        if(type == ActionType.GOOD_BYE.id()){Conversation.tell(clientSocket, Conversation.Speak.GOOD_BYE);}
     }
 }
