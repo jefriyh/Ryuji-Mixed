@@ -249,6 +249,7 @@ public class SpeechRecognition extends Speech {
         try {
             Result result = recognizer.recognize();
             String resultText = result.getBestFinalResultNoFiller();
+            System.out.println("[recognise] : " + resultText);
             if (resultText != null) {
                 return resultText;
             } else {

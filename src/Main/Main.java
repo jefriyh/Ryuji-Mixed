@@ -106,8 +106,7 @@ public class Main {
                 if (userWords != null) {
                     if (ryuji.isCommand(userWords)) {
                         state = "command";
-                    } else {
-                        
+                    } else {   
                         speechRecognition.start(userWords);
                     }
                 } else {
