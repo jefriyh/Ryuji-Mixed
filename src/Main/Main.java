@@ -29,7 +29,7 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
-        
+
         ClientSocket clientSocket = new ClientSocket();
         SpeechRecognition speechRecognition = new SpeechRecognition(args);
         speechRecognition.configure(
@@ -38,24 +38,36 @@ public class Main {
                 SpeechRecognition.Config.SHOW_RESPONSE,
                 clientSocket
         );
+        speechRecognition.setResponses(new ArrayList() {
+            {
+                add(ConversationCommands.items());
+                add(FindPeopleCommands.items());
+                add(CollegeInformationCommands.items());
+                add(MachineLearningCommands.items());
+            }
+        });
         String name = null;
         String state = "socket";
         boolean first = true;
         Ryuji ryuji = new Ryuji();
+        boolean initial = true;
         boolean opening = true;
         while (opening) {
+            if (initial) {
+                speechRecognition.start();
+                initial = false;
+            }
             if ((state.equals("socket")) && (name == null)) {
                 if (first == true) {
                     clientSocket.runMessage("REG;JAVA;");
                     first = false;
-                     state = "wait_init";                  
+                    state = "wait_init";
                 } else {
                     name = clientSocket.getMessage().toUpperCase();
-                    
                     //System.out.println("name: "+name);
-                    if (name.contains("MISS")){
+                    if (name.contains("MISS")) {
                         name = name.replace("MISS", "MISS ");//"MISS "+name.substring(4);
-                    } else if (name.contains("MISTER")){
+                    } else if (name.contains("MISTER")) {
                         name = name.replace("MISTER", "MISTER ");//"MISTER "+name.substring(6);
                     } else {
                         name = null;
@@ -67,38 +79,28 @@ public class Main {
                 do {
                     regd = clientSocket.getMessage().toUpperCase();
                 } while (!regd.contains("REGD"));
+                speechRecognition.closeSpeechRecognition();
                 state = "socket";
             } else if (state.equals("greeting")) {
                 System.out.print("RYUJI> ");
-               
-                if (name != null){
+
+                if (name != null) {
                     //call t2s
                     out.println(ryuji.greetings(name));
                     speechRecognition.getSpeechInstance().speak(ryuji.greetings(name));
                     speechRecognition.getSpeechInstance().speak("What can I do for you?");
-                
+
                 } else {
                     //call t2s
                     out.println(ryuji.greetings(name));
-                     speechRecognition.getSpeechInstance().speak(ryuji.greetings(name));
+                    speechRecognition.getSpeechInstance().speak(ryuji.greetings(name));
                     name = "USER";
                 }
-               
+
                 opening = false;
+                speechRecognition.openSpeechRecognition();
                 state = "conversation";
             }
         }
-        speechRecognition.setResponses(new ArrayList() {
-            {
-//                add(BasicCommands.items());
-//                add(DirectionCommands.items());
-//                add(BrowsingCommands.items());
-                   add(ConversationCommands.items());
-                  add(FindPeopleCommands.items());
-                add(CollegeInformationCommands.items());
-                add(MachineLearningCommands.items());
-            }
-        });
-        speechRecognition.start();
     }
 }
