@@ -37,6 +37,7 @@ public class SpeechRecognition extends Speech {
     private int colorize_console = 0;
     private int show_response = 0;
     public static boolean running = false;
+    private String currentUserWords = null;
     private boolean openSpeechRecognition = false;
 
     public SpeechRecognition(String[] args) {
@@ -237,6 +238,10 @@ public class SpeechRecognition extends Speech {
     public void openSpeechRecognition() {
         openSpeechRecognition = true;
     }
+    
+    public String getCurentUserWords() {
+        return currentUserWords;
+    }
 
     private boolean open_app = false;
 
@@ -258,6 +263,7 @@ public class SpeechRecognition extends Speech {
                 response.ListCommand();
                 Result result = recognizer.recognize();
                 String resultText = result.getBestFinalResultNoFiller();
+                currentUserWords = resultText;
                 String output[] = setOutput(resultText);
                 System.out.println("[Words] : " + resultText);
                 if (!resultText.equals("")) {

@@ -52,10 +52,14 @@ public class Main {
         Ryuji ryuji = new Ryuji();
         boolean initial = true;
         boolean opening = true;
+        String userWords = null;
         while (opening) {
             if (initial) {
                 speechRecognition.start();
                 initial = false;
+            }
+            if (speechRecognition.isSpeechRecognitionRunning()) {
+                userWords = speechRecognition.getCurentUserWords();
             }
             if ((state.equals("socket")) && (name == null)) {
                 if (first == true) {
@@ -74,13 +78,19 @@ public class Main {
                     }
                     state = "greeting";
                 }
+            } else if (ryuji.isCommand(userWords)) {
+               state = "command";
+            } else if (state.equals("command")) {
+               name = null;
+               state = "socket";
+               speechRecognition.closeSpeechRecognition();
             } else if (state.equals("wait_init")) {
                 String regd;
                 do {
                     regd = clientSocket.getMessage().toUpperCase();
                 } while (!regd.contains("REGD"));
-                speechRecognition.closeSpeechRecognition();
                 state = "socket";
+                speechRecognition.closeSpeechRecognition();
             } else if (state.equals("greeting")) {
                 System.out.print("RYUJI> ");
 
