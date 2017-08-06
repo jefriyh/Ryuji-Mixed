@@ -68,10 +68,11 @@ public class Main {
                     if (!secondRun) {
                       clientSocket.runMessage("REG;JAVA;");
                       secondRun = true;
+                      state = "wait_init";
                     }
                     
                     first = false;
-                    state = "wait_init";
+                 
                 } else {
                     name = clientSocket.getMessage().toUpperCase();
                     //System.out.println("name: "+name);
