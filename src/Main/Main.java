@@ -88,13 +88,12 @@ public class Main {
                      secondRun = true;
                      System.out.println("[Get Data Name] : " + name);
                     } else {
-                        
+                       
                         state = "greeting";
-                        if(regd != "NO2" && regd!="NO3" && regd !="REGD"){
+                        if(regd != "NO1" && regd != "NO2" && regd!="NO3" && regd !="REGD"){
                          name= regd;   
                         }
                         else{
-                            
                             name = "";
                         }
                         
