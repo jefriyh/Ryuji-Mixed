@@ -113,8 +113,9 @@ public class Main {
                         state = "command";
                     } 
                     else if(userWords.contains("bye")){
-                         speechRecognition.getSpeechInstance().speak("Bye Bye "+name);
+                        speechRecognition.getSpeechInstance().speak("Bye Bye "+name);
                         state = "command";
+                        clientSocket.runMessage("DATA;EXIT;");
                     }
                         else {   
                         speechRecognition.start(userWords);
