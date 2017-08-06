@@ -253,7 +253,11 @@ public class SpeechRecognition extends Speech {
         String resultText = result.getBestFinalResultNoFiller();
         System.out.println("[Words] : " + resultText);
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-        return resultText;
+        if (resultText != null) {
+            return resultText;
+        } else {
+            return "";
+        }
     }
 
     public void start(String words) {
