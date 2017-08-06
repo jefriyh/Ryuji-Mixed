@@ -72,7 +72,7 @@ public class Main {
                     }
                      state = "wait_init";   
                     first = false;
-                 
+                    System.out.println("[Begin STate] : "+ state);
                 } else {
                     name = clientSocket.getMessage().toUpperCase();
                     //System.out.println("name: "+name);
@@ -86,6 +86,7 @@ public class Main {
                     state = "greeting";
                 }
             } else if (state.equals("wait_init")) {
+                System.out.println("[ending STate] : "+ state);
                 String regd;
                 do {
                     regd = clientSocket.getMessage().toUpperCase();
