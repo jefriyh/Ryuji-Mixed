@@ -89,7 +89,7 @@ public class Main {
                 String regd;
                 do {
                     regd = clientSocket.getMessage().toUpperCase();
-                } while (!regd.contains("REGD") || !regd.equals(null));
+                } while (!regd.contains("REGD") || regd.equals(null));
                 state = "socket";
                 speechRecognition.closeSpeechRecognition();
             } else if (state.equals("greeting")) {
