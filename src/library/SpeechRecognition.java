@@ -170,8 +170,8 @@ public class SpeechRecognition extends Speech {
         String person = "You >> ";
         if (show_response == 1) {
             String result = text;
+            System.out.println("[Recognition] : checking output...");
             for (int i = 0; i < response.size(); i++) {
-                System.out.println("[Recognition] : checking output...");
                 if (!result.equals(text)) {
                     break;
                 }
@@ -198,8 +198,8 @@ public class SpeechRecognition extends Speech {
         int _i = 0;
         int _j = 0;
         boolean runAction = false;
+        System.out.println("[Recognition] : checking action...");
         for (int i = 0; i < response.size(); i++) {
-            System.out.println("[Recognition] : checking action...");
             if (runAction) {
                 break;
             }
@@ -215,7 +215,7 @@ public class SpeechRecognition extends Speech {
                 }
             }
         }
-        System.out.println("[Recognition] : action ready to run");
+        System.out.println("[Recognition] : running action");
         if (runAction) {
             System.out.println("[Recognition] : action taken");
             response.setSpeechInstance(getSpeechInstance());
