@@ -259,9 +259,8 @@ public class SpeechRecognition extends Speech {
             return "";
         }
     }
-
-    public void start(String words) {
-        // start the microphone or exit if the programm if this is not possible
+    
+    public void initiateMicrophone () {
         Microphone microphone = (Microphone) cm.lookup("microphone");
 //        output(Color.BLUE, "say something...");
         if (!microphone.startRecording()) {
@@ -269,6 +268,10 @@ public class SpeechRecognition extends Speech {
             recognizer.deallocate();
             System.exit(1);
         }
+    }
+
+    public void start(String words) {
+        // start the microphone or exit if the programm if this is not possible
         // loop the recognition until the programm exits.
         if (openSpeechRecognition) {
             System.out.println("Recognition Looping...");

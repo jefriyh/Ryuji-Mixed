@@ -55,6 +55,7 @@ public class Main {
         Ryuji ryuji = new Ryuji();
         boolean initial = true;
         boolean opening = true;
+        speechRecognition.initiateMicrophone();
         while (opening) {
             System.out.println("[SPeech Running] : " + speechRecognition.isSpeechRecognitionRunning());
             if (speechRecognition.isSpeechRecognitionRunning()) {
