@@ -83,7 +83,5 @@ public enum ActionType {
         if(type == ActionType.MACHINE_LEARNING_WHAT.id()){new MachineLearning(speech, userWords, null);}
         if(type == ActionType.MACHINE_LEARNING_WHO.id()){new MachineLearning(speech, userWords, null);}
         if(type == ActionType.MACHINE_LEARNING_NAME.id()){new MachineLearning(speech, userWords, "what is your name");}
-        
-        
     }
 }

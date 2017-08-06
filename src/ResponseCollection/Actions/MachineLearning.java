@@ -24,7 +24,8 @@ public class MachineLearning {
             } else {
                question = words;
             }
-            System.out.println("[ASKED] : " + question);
+            System.out.println("[TEXT] : " + overRideWords);
+            System.out.println("[REQUEST] : " + question);
             System.out.println("[RYUJI] : thinking...");
             answer = ryuji.formulateReply(question);
             if (answer != null) {
