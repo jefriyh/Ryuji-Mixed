@@ -197,6 +197,7 @@ public class SpeechRecognition extends Speech {
         String result = text;
         int _i = 0;
         int _j = 0;
+        boolean runAction = false;
         for (int i = 0; i < response.size(); i++) {
             System.out.println("[Recognition] : checking action...");
             if (!result.equals(text)) {
@@ -205,14 +206,17 @@ public class SpeechRecognition extends Speech {
             for (int j = 0; j < response.get(i).size(); j++) {
                 String commandType = response.getCommandType(i, j);
                 if (text.toLowerCase().contains(commandType)) {
+                    System.out.println("[Recognition] : action is ready");
                     result = text.toLowerCase();
                     _i = i;
                     _j = j;
+                    runAction = true;
                     break;
                 }
             }
         }
-        if (!result.equals(text)) {
+        System.out.println("[Recognition] : action ready to run");
+        if (runAction) {
             System.out.println("[Recognition] : action taken");
             response.setSpeechInstance(getSpeechInstance());
             response.setSocketInstance(clientSocket);
