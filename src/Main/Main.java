@@ -55,6 +55,7 @@ public class Main {
         Ryuji ryuji = new Ryuji();
         boolean initial = true;
         boolean opening = true;
+        boolean secondRun = false;
         speechRecognition.initiateMicrophone();
         while (opening) {
             System.out.println("[STATE APP] : " + state);
@@ -64,9 +65,13 @@ public class Main {
             }
             if ((state.equals("socket")) && (name == null)) {
                 if (first == true) {
-                    clientSocket.runMessage("REG;JAVA;");
+                    if (!secondRun) {
+                      clientSocket.runMessage("REG;JAVA;");
+                      secondRun = true;
+                    }
+                    
                     first = true;
-                     state = "wait_init";
+                    state = "wait_init";
                 } else {
                     name = clientSocket.getMessage().toUpperCase();
                     //System.out.println("name: "+name);
@@ -120,6 +125,7 @@ public class Main {
                         name = null;
                         clientSocket.runMessage("DATA;EXIT;");
                         speechRecognition.closeSpeechRecognition();
+//                        first = false;
                     }
                         else {   
                         speechRecognition.start(userWords);
