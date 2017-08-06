@@ -219,6 +219,7 @@ public class SpeechRecognition extends Speech {
 
         // loop the recognition until the programm exits.
         while (true) {
+            System.out.println("Recognition Looping...");
             System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
             response.ListCommand();
             Result result = recognizer.recognize();
