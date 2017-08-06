@@ -118,7 +118,7 @@ public class Main {
                 speechRecognition.openSpeechRecognition();
                 System.out.println("[words]" + userWords);
                 if (userWords != null) {
-                    if (ryuji.isCommand(userWords)) {
+                    if (ryuji.isCommand(userWords) || userWords.toLowerCase().contains("find")) {
                         state = "command";
                         name = null;
                         speechRecognition.closeSpeechRecognition();
