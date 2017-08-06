@@ -32,6 +32,7 @@ public class SpeechRecognition extends Speech {
     private VoiceManager vm;
     private Voice voice;
     private Response response;
+    private ClientSocket clientSocket;
     private int open_voice = 0;
     private int colorize_console = 0;
     private int show_response = 0;
@@ -48,10 +49,11 @@ public class SpeechRecognition extends Speech {
         recognizer.allocate();
     }
 
-    public void configure(Speech.Config type, Speech.Config colored, Speech.Config response) {
+    public void configure(Speech.Config type, Speech.Config colored, Speech.Config response, ClientSocket _clientSocket) {
         open_voice = type.id();
         colorize_console = colored.id();
         show_response = response.id();
+        clientSocket = _clientSocket;
         if (open_voice == 1) {
             setupVoice();
         }
@@ -130,7 +132,7 @@ public class SpeechRecognition extends Speech {
         }
     }
 
-    private SpeechRecognition getSpeechInstance() {
+    public SpeechRecognition getSpeechInstance() {
         return this;
     }
 
@@ -188,6 +190,7 @@ public class SpeechRecognition extends Speech {
             for (int j = 0; j < response.get(i).size(); j++) {
                 if (text.toLowerCase().contains(response.getCommandType(i, j))) {
                     response.setSpeechInstance(getSpeechInstance());
+                    response.setSocketInstance(clientSocket);
                     response.setUserWords(text.toLowerCase());
                     response.shouldRunAction(i, j);
                     break;

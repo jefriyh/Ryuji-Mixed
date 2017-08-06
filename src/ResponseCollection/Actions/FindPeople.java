@@ -13,8 +13,6 @@ import library.ClientSocket;
  */
 public class FindPeople {
     
-    private static final ClientSocket clientSocket = new ClientSocket();
-    
     public enum People{
         ALVIAN("alvian"),
         ANNA("anna"),
@@ -37,9 +35,9 @@ public class FindPeople {
         }
     }
     
-    public static void find (People people) {
+    public static void find (ClientSocket clientSocket, People people) {
         System.out.println("[application] : looking for " + people.getName());        
-        clientSocket.runMessage("find " + people.getName());
+        clientSocket.runMessage("DATA;" + people.getName().replaceAll(" ", "").toUpperCase() + ";");
     }
     
     //        Main.Main.getSpeechRecognition().sendMessageSocket("find " + people.getName());

@@ -21,6 +21,7 @@ public class Response{
     private int type;
     private String userWords;
     private SpeechRecognition speechRecognition;
+    private ClientSocket clientSocket;
 
     public Response(){
         this.collection = new ArrayList();
@@ -54,6 +55,10 @@ public class Response{
     public void setSpeechInstance(SpeechRecognition instance){
         speechRecognition = instance;
     }
+    
+    public void setSocketInstance(ClientSocket instance) {
+        clientSocket = instance;
+    }
 
     public String getCommand(int i, int j){
         return String.format("%s",
@@ -79,7 +84,7 @@ public class Response{
     private void runResponseAction(int type){
         this.type = type;
         try {
-            ActionType.runAction(speechRecognition, type, userWords);
+            ActionType.runAction(clientSocket, speechRecognition, type, userWords);
             Thread.sleep(500);                 //1000 milliseconds is one second.
         } catch(InterruptedException ex) {
             Thread.currentThread().interrupt();
