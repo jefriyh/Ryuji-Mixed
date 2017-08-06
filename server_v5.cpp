@@ -37,7 +37,7 @@ int main()
 	int sockopt;			//return value untuk set socket option
 	socklen_t clilen;		//ukuran alamat client
 	int jumlah_byte;		//return value untuk fungsi read() sama write() nanti
-	int portNum = 1500;		//nomor port (ini sebenernya juga bisa di ambil dari argument terminal)
+	int portNum = 8888;		//nomor port (ini sebenernya juga bisa di ambil dari argument terminal)
 	char buffer[256];       //deklarasi untuk berapa besar ukuran buffer
 
 	//struct sockaddr_in udah bawaan dari netinet/in.h, berikut definisinya

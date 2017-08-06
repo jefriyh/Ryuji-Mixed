@@ -81,6 +81,9 @@ grammar basics;
    (
     can you help [(me | alvian)] [please]
     ) |
+   (
+    [good] bye
+    ) |
    ( (thanks | thank you) [ryuji])
 );
 
