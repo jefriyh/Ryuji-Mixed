@@ -105,10 +105,11 @@ public class Main {
                     } else if (name.contains("MISTER")) {
                         name = name.replace("MISTER", "MISTER ");//"MISTER "+name.substring(6);
                     } else {
-                        name = null;
-                        if ( !regd.contains("NO1")){
+                        if ( !name.contains("NO1")){
                             speechRecognition.getSpeechInstance().speak("the person you are looking for is not found");
                         }
+                        name = null;
+                       
                         
                     }
                     
