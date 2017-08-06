@@ -173,7 +173,6 @@ public class SpeechRecognition extends Speech {
             for (int i = 0; i < response.size(); i++) {
                 System.out.println("[Recognition] : checking output...");
                 if (!result.equals(text)) {
-                    System.out.println("[Recognition] : output taken");
                     break;
                 }
                 for (int j = 0; j < response.get(i).size(); j++) {
@@ -186,7 +185,8 @@ public class SpeechRecognition extends Speech {
                         break;
                     }
                 }
-             }
+            }
+            System.out.println("[Recognition] : output taken");
             return new String[]{person, result};
         } else {
             return new String[]{person, text};
@@ -195,23 +195,29 @@ public class SpeechRecognition extends Speech {
 
     private void checkAction(String text) {
         String result = text;
+        int _i = 0;
+        int _j = 0;
         for (int i = 0; i < response.size(); i++) {
             System.out.println("[Recognition] : checking action...");
             if (!result.equals(text)) {
-                System.out.println("[Recognition] : action taken");
                 break;
             }
             for (int j = 0; j < response.get(i).size(); j++) {
                 String commandType = response.getCommandType(i, j);
                 if (text.toLowerCase().contains(commandType)) {
                     result = text.toLowerCase();
-                    response.setSpeechInstance(getSpeechInstance());
-                    response.setSocketInstance(clientSocket);
-                    response.setUserWords(result);
-                    response.shouldRunAction(i, j);
+                    _i = i;
+                    _j = j;
                     break;
                 }
             }
+        }
+        if (!result.equals(text)) {
+            System.out.println("[Recognition] : action taken");
+            response.setSpeechInstance(getSpeechInstance());
+            response.setSocketInstance(clientSocket);
+            response.setUserWords(result);
+            response.shouldRunAction(_i, _j);
         }
     }
 
