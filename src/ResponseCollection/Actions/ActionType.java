@@ -81,8 +81,8 @@ public enum ActionType {
         if(type == ActionType.FIND_MISTER_ERY.id()){FindPeople.find(clientSocket, FindPeople.People.MISTER_ERY);}
         if(type == ActionType.FIND_MISTER_MAULANA.id()){FindPeople.find(clientSocket, FindPeople.People.MISTER_MAULANA);}
         if(type == ActionType.FIND_MISTER_MUSA.id()){FindPeople.find(clientSocket, FindPeople.People.MISTER_MUSA);}
-        if(type == ActionType.MACHINE_LEARNING_WHAT.id()){new MachineLearning(speech, userWords, null);}
-        if(type == ActionType.MACHINE_LEARNING_WHO.id()){new MachineLearning(speech, userWords, null);}
-        if(type == ActionType.MACHINE_LEARNING_NAME.id()){new MachineLearning(speech, userWords, "what is your name");}
+        if(type == ActionType.MACHINE_LEARNING_WHAT.id()){new MachineLearning(speech, userWords);}
+        if(type == ActionType.MACHINE_LEARNING_WHO.id()){new MachineLearning(speech, userWords);}
+        if(type == ActionType.MACHINE_LEARNING_NAME.id()){new MachineLearning(speech, userWords);}
     }
 }

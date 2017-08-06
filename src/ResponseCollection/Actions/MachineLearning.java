@@ -14,17 +14,17 @@ import ryuji.Ryuji;
  * @author alvian
  */
 public class MachineLearning {
-    public MachineLearning(SpeechRecognition speech, String words, String overRideWords) {
+    public MachineLearning(SpeechRecognition speech, String words) {
         try {
             Ryuji ryuji = new Ryuji();
             String answer = null;
             String question = null;
-            if (overRideWords != null) {
-               question = overRideWords;
-            } else {
-               question = words;
+            if (words.contains("who are you")) {
+                question = "what is your name";
             }
-            System.out.println("[TEXT] : " + overRideWords);
+            System.out.println("[REAL TEXT] : " + words);
+            System.out.println("[TEXT OVERRIDE] : " + words.contains("who are you"));
+            System.out.println("[OVERRIDE WITH] : " + question);
             System.out.println("[REQUEST] : " + question);
             System.out.println("[RYUJI] : thinking...");
             answer = ryuji.formulateReply(question);
