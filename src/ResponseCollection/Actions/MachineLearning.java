@@ -18,12 +18,15 @@ public class MachineLearning {
         try {
             Ryuji ryuji = new Ryuji();
             String answer = null;
-            System.out.println("[RYUJI] : thinking...");
+            String question = null;
             if (overRideWords != null) {
-               answer = ryuji.formulateReply(overRideWords);
+               question = overRideWords;
             } else {
-               answer = ryuji.formulateReply(words);
+               question = words;
             }
+            System.out.println("[ASKED] : " + question);
+            System.out.println("[RYUJI] : thinking...");
+            answer = ryuji.formulateReply(question);
             if (answer != null) {
                 System.out.println("[RYUJI] : " + answer);
                 speech.speak(answer);
