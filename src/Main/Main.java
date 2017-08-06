@@ -68,9 +68,9 @@ public class Main {
                     if (!secondRun) {
                       clientSocket.runMessage("REG;JAVA;");
                       secondRun = true;
-                      state = "wait_init";
+                 
                     }
-                    
+                     state = "wait_init";   
                     first = false;
                  
                 } else {
@@ -89,7 +89,7 @@ public class Main {
                 String regd;
                 do {
                     regd = clientSocket.getMessage().toUpperCase();
-                } while (!regd.contains("REGD"));
+                } while (!regd.contains("REGD") || !regd.equals(null));
                 state = "socket";
                 speechRecognition.closeSpeechRecognition();
             } else if (state.equals("greeting")) {
@@ -119,6 +119,7 @@ public class Main {
                         state = "command";
                         name = null;
                         speechRecognition.closeSpeechRecognition();
+                        first = true;
                     } 
                     else if(userWords.contains("bye")){
                         speechRecognition.getSpeechInstance().speak("Bye Bye "+name);
@@ -126,7 +127,7 @@ public class Main {
                         name = null;
                         clientSocket.runMessage("DATA;EXIT;");
                         speechRecognition.closeSpeechRecognition();
-                        first = true;
+                        
                     }
                         else {   
                         speechRecognition.start(userWords);
