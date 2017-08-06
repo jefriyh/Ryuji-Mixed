@@ -200,7 +200,7 @@ public class SpeechRecognition extends Speech {
         boolean runAction = false;
         for (int i = 0; i < response.size(); i++) {
             System.out.println("[Recognition] : checking action...");
-            if (!result.equals(text)) {
+            if (runAction) {
                 break;
             }
             for (int j = 0; j < response.get(i).size(); j++) {
