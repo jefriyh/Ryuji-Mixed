@@ -172,11 +172,10 @@ public class SpeechRecognition extends Speech {
             String result = text;
             for (int i = 0; i < response.size(); i++) {
                 for (int j = 0; j < response.get(i).size(); j++) {
-                    if (text.toLowerCase().contains("data" + response.getCommandType(i, j))) {
-                        result = response.getResponse(i, j);
-                        person = "Bot >> ";
-                        break;
-                    } else if (text.toLowerCase().contains(response.getCommandType(i, j))) {
+                    String commandType = response.getCommandType(i, j);
+                    if (text.toLowerCase().contains(commandType)) {
+                        System.out.println("[Recognition Text] : " + text.toLowerCase());
+                        System.out.println("[Recognition Head] : " + commandType);
                         result = response.getResponse(i, j);
                         person = "Bot >> ";
                         break;

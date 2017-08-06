@@ -16,17 +16,17 @@ public enum CollegeInformationCommands {
 //    WHAT_1("what ", "what is the vision of gunadarma university ?", "", ActionType.COLLEGE_INFORMATION_WHAT.id()),
 //    WHO_1("who", "who are you", "", ActionType.COLLEGE_INFORMATION_WHO.id()),
 //    WHO_2("who", "who is the rector gunadarma ?", "", ActionType.COLLEGE_INFORMATION_WHO.id()),
-    WHAT_2("datawhat ", "what is the meaning of the name gunadarma university ?", "", ActionType.COLLEGE_INFORMATION_WHAT.id()),
-    WHAT_3("datawhat ", "what defines gunadarma ?", "", ActionType.COLLEGE_INFORMATION_WHAT.id()),
-    WHAT_4("datawhat ", "what is the mission of gunadarma ?", "", ActionType.COLLEGE_INFORMATION_WHAT.id()),
-    WHAT_5("datawhat ", "what are gunadarma students activities ?", "", ActionType.COLLEGE_INFORMATION_WHAT.id()),
-    WHEN_1("datawhen ", "when did gunadarma university got ' listed ' ?", "", ActionType.COLLEGE_INFORMATION_WHEN.id()),
-    WHEN_2("datawhen ", "when did gunadarma university got ' equalized ' ?", "", ActionType.COLLEGE_INFORMATION_WHEN.id()),
-    WHERE_1("datawhere ", "where was gunadarma first located ?", "", ActionType.COLLEGE_INFORMATION_WHERE.id()),
-    HOW_1("datahow ", "how did gunadarma firstly located ?", "", ActionType.COLLEGE_INFORMATION_HOW.id()),
-    HOW_2("datahow ", "how did gunadarma name chosen ?", "", ActionType.COLLEGE_INFORMATION_HOW.id()),
-    HOW_3("datahow ", "how did gunadarma built ?", "", ActionType.COLLEGE_INFORMATION_HOW.id()),
-    HOW_4("datahow ", "how did gunadarma first founded ?", "", ActionType.COLLEGE_INFORMATION_HOW.id());
+    MEANING("meaning", "what is the meaning of the name gunadarma university ?", "", ActionType.MEANING.id()),
+    DEFINE("defines", "what defines gunadarma ?", "", ActionType.DEFINE.id()),
+    MISSION("mission", "what is the mission of gunadarma ?", "", ActionType.MISSION.id()),
+    STUDENT("students", "what are gunadarma students activities ?", "", ActionType.STUDENT.id()),
+    LISTED("listed", "when did gunadarma university got ' listed ' ?", "", ActionType.LISTED.id()),
+    EQUALIZED("equalized", "when did gunadarma university got ' equalized ' ?", "", ActionType.EQUALIZED.id()),
+    LOCATED_1("located", "where was gunadarma first located ?", "", ActionType.LOCATED.id()),
+    LOCATED_2("located", "how did gunadarma firstly located ?", "", ActionType.LOCATED.id()),
+    CHOSEN("chosen", "how did gunadarma name chosen ?", "", ActionType.CHOSEN.id()),
+    BUILT("built", "how did gunadarma built ?", "", ActionType.BUILT.id()),
+    FOUNDED("founded", "how did gunadarma first founded ?", "", ActionType.FOUNDED.id());
 
     private final String title = "Information about Gunadarma's Profile. Ask something like below : ";
     private final String said;

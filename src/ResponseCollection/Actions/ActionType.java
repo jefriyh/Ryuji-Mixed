@@ -25,25 +25,30 @@ public enum ActionType {
     BROWSE_TWITTER(9),
     BROWSE_ALLKPOP(10),
     
-    COLLEGE_INFORMATION_WHAT(11),
-    COLLEGE_INFORMATION_WHEN(12),
-    COLLEGE_INFORMATION_WHERE(13),
-    COLLEGE_INFORMATION_WHO(14),
-    COLLEGE_INFORMATION_HOW(15),
+    MEANING(11),
+    DEFINE(12),
+    MISSION(13),
+    STUDENT(14),
+    LISTED(15),
+    EQUALIZED(16),
+    LOCATED(17),
+    CHOSEN(18),
+    BUILT(19),
+    FOUNDED(20),
     
-    FIND_ALVIAN(16),
-    FIND_ANNA(17),
-    FIND_JEFRI(18),
-    FIND_LINTONG(19),
-    FIND_MISS_MARGIANTI(20),
-    FIND_MISTER_DENNIS(21),
-    FIND_MISTER_ERY(22),
-    FIND_MISTER_MAULANA(23),
-    FIND_MISTER_MUSA(24),
+    FIND_ALVIAN(21),
+    FIND_ANNA(22),
+    FIND_JEFRI(23),
+    FIND_LINTONG(24),
+    FIND_MISS_MARGIANTI(25),
+    FIND_MISTER_DENNIS(26),
+    FIND_MISTER_ERY(27),
+    FIND_MISTER_MAULANA(28),
+    FIND_MISTER_MUSA(29),
     
-    MACHINE_LEARNING_WHAT(25),
-    MACHINE_LEARNING_WHO(26),
-    MACHINE_LEARNING_NAME(27);
+    MACHINE_LEARNING_WHAT(30),
+    MACHINE_LEARNING_WHO(31),
+    MACHINE_LEARNING_NAME(32);
 
     private final int type;
 
@@ -67,11 +72,16 @@ public enum ActionType {
         if(type == ActionType.BROWSE_YOUTUBE.id()){new Browsing(Browsing.Browse.YOUTUBE);}
         if(type == ActionType.BROWSE_ALLKPOP.id()){new Browsing(Browsing.Browse.ALLKPOP);}
         if(type == ActionType.BROWSE_TWITTER.id()){new Browsing(Browsing.Browse.TWITTER);}
-        if(type == ActionType.COLLEGE_INFORMATION_WHAT.id()){new CollegeInformation(speech, "datawhat"  , userWords);}
-        if(type == ActionType.COLLEGE_INFORMATION_WHEN.id()){new CollegeInformation(speech, "datawhen", userWords);}
-        if(type == ActionType.COLLEGE_INFORMATION_WHERE.id()){new CollegeInformation(speech, "datawhere", userWords);}
-        if(type == ActionType.COLLEGE_INFORMATION_WHO.id()){new CollegeInformation(speech, "datawho", userWords);}
-        if(type == ActionType.COLLEGE_INFORMATION_HOW.id()){new CollegeInformation(speech, "datahow", userWords);}
+        if(type == ActionType.MEANING.id()){new CollegeInformation(speech, "meaning"  , userWords);}
+        if(type == ActionType.DEFINE.id()){new CollegeInformation(speech, "defines", userWords);}
+        if(type == ActionType.MISSION.id()){new CollegeInformation(speech, "mission", userWords);}
+        if(type == ActionType.STUDENT.id()){new CollegeInformation(speech, "student", userWords);}
+        if(type == ActionType.LISTED.id()){new CollegeInformation(speech, "listed", userWords);}
+        if(type == ActionType.EQUALIZED.id()){new CollegeInformation(speech, "equalized", userWords);}
+        if(type == ActionType.LOCATED.id()){new CollegeInformation(speech, "located", userWords);}
+        if(type == ActionType.LOCATED.id()){new CollegeInformation(speech, "located", userWords);}
+        if(type == ActionType.BUILT.id()){new CollegeInformation(speech, "built", userWords);}
+        if(type == ActionType.FOUNDED.id()){new CollegeInformation(speech, "founded", userWords);}
         if(type == ActionType.FIND_ALVIAN.id()){FindPeople.find(clientSocket, FindPeople.People.ALVIAN);}
         if(type == ActionType.FIND_ANNA.id()){FindPeople.find(clientSocket, FindPeople.People.ANNA);}
         if(type == ActionType.FIND_JEFRI.id()){FindPeople.find(clientSocket, FindPeople.People.JEFRI);}
