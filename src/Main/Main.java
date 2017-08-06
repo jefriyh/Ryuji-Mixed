@@ -89,6 +89,7 @@ public class Main {
                 String regd;
                 do {
                     regd = clientSocket.getMessage().toUpperCase();
+                    System.out.println(regd);
                 } while (!regd.contains("REGD") || regd.equals(null));
                 state = "socket";
                 speechRecognition.closeSpeechRecognition();
@@ -121,7 +122,7 @@ public class Main {
                         speechRecognition.closeSpeechRecognition();
                         first = true;
                     } 
-                    else if(userWords.contains("bye")){
+                    else if(userWords.contains("good bye")){
                         speechRecognition.getSpeechInstance().speak("Bye Bye "+name);
                         state = "command";
                         name = null;
