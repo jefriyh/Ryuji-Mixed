@@ -57,6 +57,7 @@ public class Main {
         boolean opening = true;
         speechRecognition.initiateMicrophone();
         while (opening) {
+            System.out.println("[STATE APP] : " + state);
             System.out.println("[SPeech Running] : " + speechRecognition.isSpeechRecognitionRunning());
             if (speechRecognition.isSpeechRecognitionRunning()) {
                 userWords = speechRecognition.getCurentUserWords();
