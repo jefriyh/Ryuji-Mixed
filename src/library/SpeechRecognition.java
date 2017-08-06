@@ -247,13 +247,8 @@ public class SpeechRecognition extends Speech {
 
     public String getUserWords() {
         try {
-            System.out.println("Recognition Looping...");
-            System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-            response.ListCommand();
             Result result = recognizer.recognize();
             String resultText = result.getBestFinalResultNoFiller();
-            System.out.println("[Words] : " + resultText);
-            System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
             if (resultText != null) {
                 return resultText;
             } else {
@@ -275,9 +270,13 @@ public class SpeechRecognition extends Speech {
         }
         // loop the recognition until the programm exits.
         if (openSpeechRecognition) {
+            System.out.println("Recognition Looping...");
+            System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+            response.ListCommand();
             String resultText = words;
             currentUserWords = words;
             String output[] = setOutput(resultText);
+            System.out.println("[Words] : " + resultText);
             if (!resultText.equals("")) {
                 if (resultText.toLowerCase().contains("quit ")) {
                     output(Color.GREEN, Get.QUIT.respone());
@@ -296,6 +295,7 @@ public class SpeechRecognition extends Speech {
             } else {
                 output(Color.YELLOW, "Bot >> " + Get.ERROR.respone());
             }
+            System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         }
     }
 }
