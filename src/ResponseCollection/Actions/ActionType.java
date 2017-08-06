@@ -56,6 +56,7 @@ public enum ActionType {
     }
 
     public static void runAction(ClientSocket clientSocket, SpeechRecognition speech, int type, String userWords){
+        System.out.println("[Action Type Code] : " + type);
         if(type == ActionType.DIRECTION_LEFT.id()){new Direction("left");}
         if(type == ActionType.DIRECTION_RIGHT.id()){new Direction("right");}
         if(type == ActionType.DIRECTION_BACKWARD.id()){new Direction("backward");}
