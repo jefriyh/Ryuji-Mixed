@@ -63,6 +63,10 @@ public class Main {
             if (speechRecognition.isSpeechRecognitionRunning()) {
                 userWords = speechRecognition.getCurentUserWords();
             }
+            if (state == "socket") {
+                name = null;
+            }
+            System.out.println("[Name] : " + name);
             if ((state.equals("socket")) && (name == null)) {
                 if (first == true) {
                     if (!secondRun) {
