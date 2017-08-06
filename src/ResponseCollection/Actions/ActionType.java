@@ -67,11 +67,11 @@ public enum ActionType {
         if(type == ActionType.BROWSE_YOUTUBE.id()){new Browsing(Browsing.Browse.YOUTUBE);}
         if(type == ActionType.BROWSE_ALLKPOP.id()){new Browsing(Browsing.Browse.ALLKPOP);}
         if(type == ActionType.BROWSE_TWITTER.id()){new Browsing(Browsing.Browse.TWITTER);}
-        if(type == ActionType.COLLEGE_INFORMATION_WHAT.id()){new CollegeInformation(speech, "what", userWords);}
-        if(type == ActionType.COLLEGE_INFORMATION_WHEN.id()){new CollegeInformation(speech, "when", userWords);}
-        if(type == ActionType.COLLEGE_INFORMATION_WHERE.id()){new CollegeInformation(speech, "where", userWords);}
-        if(type == ActionType.COLLEGE_INFORMATION_WHO.id()){new CollegeInformation(speech, "who", userWords);}
-        if(type == ActionType.COLLEGE_INFORMATION_HOW.id()){new CollegeInformation(speech, "how", userWords);}
+        if(type == ActionType.COLLEGE_INFORMATION_WHAT.id()){new CollegeInformation(speech, "datawhat"  , userWords);}
+        if(type == ActionType.COLLEGE_INFORMATION_WHEN.id()){new CollegeInformation(speech, "datawhen", userWords);}
+        if(type == ActionType.COLLEGE_INFORMATION_WHERE.id()){new CollegeInformation(speech, "datawhere", userWords);}
+        if(type == ActionType.COLLEGE_INFORMATION_WHO.id()){new CollegeInformation(speech, "datawho", userWords);}
+        if(type == ActionType.COLLEGE_INFORMATION_HOW.id()){new CollegeInformation(speech, "datahow", userWords);}
         if(type == ActionType.FIND_ALVIAN.id()){FindPeople.find(clientSocket, FindPeople.People.ALVIAN);}
         if(type == ActionType.FIND_ANNA.id()){FindPeople.find(clientSocket, FindPeople.People.ANNA);}
         if(type == ActionType.FIND_JEFRI.id()){FindPeople.find(clientSocket, FindPeople.People.JEFRI);}
