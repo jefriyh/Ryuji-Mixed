@@ -80,11 +80,14 @@ public class Main {
                     System.out.println("[Begin STate] : "+ state);
                 } else {
                     System.out.println("[Get First Name] : " + name);
+                    System.out.println("[SECOND RUN] : " + secondRun);
                     if (!secondRun) {
                      name = clientSocket.getMessage().toUpperCase();
                      state = "greeting";
                      secondRun = true;
                      System.out.println("[Get Data Name] : " + name);
+                    } else {
+                        name = "";
                     }                    
                     //System.out.println("name: "+name);
                     
