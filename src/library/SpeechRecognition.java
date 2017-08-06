@@ -173,7 +173,7 @@ public class SpeechRecognition extends Speech {
             for (int i = 0; i < response.size(); i++) {
                 System.out.println("[Recognition] : checking output...");
                 if (!result.equals(text)) {
-                    System.out.println("[recognition] : output taken");
+                    System.out.println("[Recognition] : output taken");
                     break;
                 }
                 for (int j = 0; j < response.get(i).size(); j++) {
@@ -194,12 +194,20 @@ public class SpeechRecognition extends Speech {
     }
 
     private void checkAction(String text) {
+        String result = text;
         for (int i = 0; i < response.size(); i++) {
+            System.out.println("[Recognition] : checking action...");
+            if (!result.equals(text)) {
+                System.out.println("[Recognition] : action taken");
+                break;
+            }
             for (int j = 0; j < response.get(i).size(); j++) {
-                if (text.toLowerCase().contains(response.getCommandType(i, j))) {
+                String commandType = response.getCommandType(i, j);
+                if (text.toLowerCase().contains(commandType)) {
+                    result = text.toLowerCase();
                     response.setSpeechInstance(getSpeechInstance());
                     response.setSocketInstance(clientSocket);
-                    response.setUserWords(text.toLowerCase());
+                    response.setUserWords(result);
                     response.shouldRunAction(i, j);
                     break;
                 }
