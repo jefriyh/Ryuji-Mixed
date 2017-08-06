@@ -5,9 +5,11 @@
  */
 package Main;
 
+import ResponseCollection.Actions.MachineLearning;
 import ResponseCollection.CollegeInformationCommands;
 import ResponseCollection.ConversationCommands;
 import ResponseCollection.FindPeopleCommands;
+import ResponseCollection.MachineLearningCommands;
 import java.io.IOException;
 import static java.lang.System.out;
 import java.util.ArrayList;
@@ -87,6 +89,7 @@ public class Main {
                    add(ConversationCommands.items());
                   add(FindPeopleCommands.items());
                 add(CollegeInformationCommands.items());
+                add(MachineLearningCommands.items());
             }
         });
         speechRecognition.start();
