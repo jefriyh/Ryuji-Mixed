@@ -101,6 +101,7 @@ public class Main {
                 speechRecognition.openSpeechRecognition();
                 state = "conversation";
             } else if (state.equals("conversation")) {
+                speechRecognition.openSpeechRecognition();
                 if (userWords != null) {
                     if (ryuji.isCommand(userWords)) {
                         state = "command";

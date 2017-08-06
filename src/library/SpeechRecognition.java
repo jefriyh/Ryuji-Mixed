@@ -38,7 +38,7 @@ public class SpeechRecognition extends Speech {
     private int show_response = 0;
     public static boolean running = false;
     private String currentUserWords = null;
-    private boolean openSpeechRecognition = false;
+    private static boolean openSpeechRecognition = false;
 
     public SpeechRecognition(String[] args) {
         if (args.length > 0) {
