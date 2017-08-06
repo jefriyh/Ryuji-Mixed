@@ -101,10 +101,14 @@ public class Main {
                 speechRecognition.openSpeechRecognition();
                 state = "conversation";
             } else if (state.equals("conversation")) {
-                if (ryuji.isCommand(userWords)) {
-                    state = "command";
+                if (userWords != null) {
+                    if (ryuji.isCommand(userWords)) {
+                        state = "command";
+                    } else {
+                        speechRecognition.start(userWords);
+                    }
                 } else {
-                    speechRecognition.start();
+                    userWords = speechRecognition.getUserWords();
                 }
             } else if (state.equals("command")) {
                 name = null;

@@ -238,14 +238,25 @@ public class SpeechRecognition extends Speech {
     public void openSpeechRecognition() {
         openSpeechRecognition = true;
     }
-    
+
     public String getCurentUserWords() {
         return currentUserWords;
     }
 
     private boolean open_app = false;
 
-    public void start() {
+    public String getUserWords() {
+        System.out.println("Recognition Looping...");
+        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+        response.ListCommand();
+        Result result = recognizer.recognize();
+        String resultText = result.getBestFinalResultNoFiller();
+        System.out.println("[Words] : " + resultText);
+        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+        return resultText;
+    }
+
+    public void start(String words) {
         // start the microphone or exit if the programm if this is not possible
         Microphone microphone = (Microphone) cm.lookup("microphone");
 //        output(Color.BLUE, "say something...");
@@ -256,34 +267,28 @@ public class SpeechRecognition extends Speech {
         }
         // loop the recognition until the programm exits.
         if (openSpeechRecognition) {
-                System.out.println("Recognition Looping...");
-                System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-                response.ListCommand();
-                Result result = recognizer.recognize();
-                String resultText = result.getBestFinalResultNoFiller();
-                currentUserWords = resultText;
-                String output[] = setOutput(resultText);
-                System.out.println("[Words] : " + resultText);
-                if (!resultText.equals("")) {
-                    if (resultText.toLowerCase().contains("quit ")) {
-                        output(Color.GREEN, Get.QUIT.respone());
-                        voice.deallocate();
-                        System.exit(0);
-                    } else {
-                        if (!output[1].equals("")) {
-                            output(Color.GREEN, output[0] + output[1]);
-                        }
-//                    output(Color.GREEN, output.toString());
-                        if (output[0] != "You >> ") {
-                            speak(output[1]);
-                        }
-                        checkAction(resultText);
-                    }
+            String resultText = words;
+            currentUserWords = words;
+            String output[] = setOutput(resultText);
+            if (!resultText.equals("")) {
+                if (resultText.toLowerCase().contains("quit ")) {
+                    output(Color.GREEN, Get.QUIT.respone());
+                    voice.deallocate();
+                    System.exit(0);
                 } else {
-                    output(Color.YELLOW, "Bot >> " + Get.ERROR.respone());
+                    if (!output[1].equals("")) {
+                        output(Color.GREEN, output[0] + output[1]);
+                    }
+//                    output(Color.GREEN, output.toString());
+                    if (output[0] != "You >> ") {
+                        speak(output[1]);
+                    }
+                    checkAction(resultText);
                 }
-                System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+            } else {
+                output(Color.YELLOW, "Bot >> " + Get.ERROR.respone());
             }
+        }
     }
 }
 
