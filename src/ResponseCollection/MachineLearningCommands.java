@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public enum MachineLearningCommands {
     WHAT_1("what ", "what is the vision of gunadarma university ?", "", ActionType.MACHINE_LEARNING_WHAT.id()),
     WHAT_2("what", "what is your name ?", "", ActionType.MACHINE_LEARNING_WHAT.id()),
-    NAME_1("name", "who are you ?", "", ActionType.MACHINE_LEARNING_NAME.id()),
+    NAME_1("name", "who are you ?", "", ActionType.MACHINE_LEARNING_WHO.id()),
     WHO_2("who", "who is the rector gunadarma ?", "", ActionType.MACHINE_LEARNING_WHO.id());
 
     private final String title = "Machine Learning";

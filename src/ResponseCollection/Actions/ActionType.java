@@ -47,8 +47,7 @@ public enum ActionType {
     FIND_MISTER_MUSA(29),
     
     MACHINE_LEARNING_WHAT(30),
-    MACHINE_LEARNING_WHO(31),
-    MACHINE_LEARNING_NAME(32);
+    MACHINE_LEARNING_WHO(31);
 
     private final int type;
 
@@ -78,6 +77,7 @@ public enum ActionType {
         if(type == ActionType.STUDENT.id()){new CollegeInformation(speech, "student", userWords);}
         if(type == ActionType.LISTED.id()){new CollegeInformation(speech, "listed", userWords);}
         if(type == ActionType.EQUALIZED.id()){new CollegeInformation(speech, "equalized", userWords);}
+        if(type == ActionType.CHOSEN.id()){new CollegeInformation(speech, "chosen", userWords);}
         if(type == ActionType.LOCATED.id()){new CollegeInformation(speech, "located", userWords);}
         if(type == ActionType.LOCATED.id()){new CollegeInformation(speech, "located", userWords);}
         if(type == ActionType.BUILT.id()){new CollegeInformation(speech, "built", userWords);}
@@ -93,6 +93,5 @@ public enum ActionType {
         if(type == ActionType.FIND_MISTER_MUSA.id()){FindPeople.find(clientSocket, FindPeople.People.MISTER_MUSA);}
         if(type == ActionType.MACHINE_LEARNING_WHAT.id()){new MachineLearning(speech, userWords);}
         if(type == ActionType.MACHINE_LEARNING_WHO.id()){new MachineLearning(speech, userWords);}
-        if(type == ActionType.MACHINE_LEARNING_NAME.id()){new MachineLearning(speech, userWords);}
     }
 }
