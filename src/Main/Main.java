@@ -28,6 +28,9 @@ public class Main {
     /**
      * @param args the command line arguments
      */
+    
+    static String userWords = null;
+    
     public static void main(String[] args) throws IOException {
 
         ClientSocket clientSocket = new ClientSocket();
@@ -52,7 +55,6 @@ public class Main {
         Ryuji ryuji = new Ryuji();
         boolean initial = true;
         boolean opening = true;
-        String userWords = null;
         while (opening) {
             System.out.println("[SPeech Running] : " + speechRecognition.isSpeechRecognitionRunning());
             if (speechRecognition.isSpeechRecognitionRunning()) {
@@ -101,6 +103,7 @@ public class Main {
                 speechRecognition.openSpeechRecognition();
                 state = "conversation";
             } else if (state.equals("conversation")) {
+                userWords = speechRecognition.getUserWords();
                 System.out.println("user words :" + userWords);
                 speechRecognition.openSpeechRecognition();
                 if (userWords != null) {
@@ -109,8 +112,6 @@ public class Main {
                     } else {   
                         speechRecognition.start(userWords);
                     }
-                } else {
-                    userWords = speechRecognition.getUserWords();
                 }
             } else if (state.equals("command")) {
                 name = null;
