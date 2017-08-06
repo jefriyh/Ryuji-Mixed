@@ -79,7 +79,6 @@ public enum ActionType {
         if(type == ActionType.EQUALIZED.id()){new CollegeInformation(speech, "equalized", userWords);}
         if(type == ActionType.CHOSEN.id()){new CollegeInformation(speech, "chosen", userWords);}
         if(type == ActionType.LOCATED.id()){new CollegeInformation(speech, "located", userWords);}
-        if(type == ActionType.LOCATED.id()){new CollegeInformation(speech, "located", userWords);}
         if(type == ActionType.BUILT.id()){new CollegeInformation(speech, "built", userWords);}
         if(type == ActionType.FOUNDED.id()){new CollegeInformation(speech, "founded", userWords);}
         if(type == ActionType.FIND_ALVIAN.id()){FindPeople.find(clientSocket, FindPeople.People.ALVIAN);}
