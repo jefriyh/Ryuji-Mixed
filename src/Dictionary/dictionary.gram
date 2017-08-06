@@ -15,7 +15,8 @@ grammar basics;
     is [the] meaning of [the] [name] <gunadarma> |
     are <gunadarma> (student | students) (activity | activities) |
     [defines] [define] <gunadarma> |
-    (is|are) [the] mission of <gunadarma>
+    (is|are) [the] mission of <gunadarma> |
+    is your name
   )
 );
 
