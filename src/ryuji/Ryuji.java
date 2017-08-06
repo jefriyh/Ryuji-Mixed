@@ -8,9 +8,8 @@ import java.text.ParseException;
 import nlpeng.*;
 
 /**
- * Main class implementing the main Ryuji engine.
- * Provides methods to train the brain, and to generate text
- * responses from it.
+ * Main class implementing the main Ryuji engine. Provides methods to train the
+ * brain, and to generate text responses from it.
  *
  * @author Trejkaz
  */
@@ -26,10 +25,10 @@ public class Ryuji {
     private final Splitter splitter;
 
     // Random Number Generator
-    private final Random rng = new Random();        
-    
+    private final Random rng = new Random();
+
     public Map<String, String> commands;
-    
+
     public List<String> greeting = new ArrayList<String>();
 
     /**
@@ -47,21 +46,21 @@ public class Ryuji {
         //dictionary.add("<BEGIN>");
         //dictionary.add("<END>");
 
-        String home = System.getProperty("user.home");        
-        swapWords = Utils.readSymbolMapFromFile(home+"/data/megahal.swp");
-        Set<Symbol> banWords = Utils.readSymbolSetFromFile(home+"/data/megahal.ban");        
-        Set<Symbol> auxWords = Utils.readSymbolSetFromFile(home+"/data/megahal.aux");
+        String home = System.getProperty("user.home");
+        swapWords = Utils.readSymbolMapFromFile(home + "/data/megahal.swp");
+        Set<Symbol> banWords = Utils.readSymbolSetFromFile(home + "/data/megahal.ban");
+        Set<Symbol> auxWords = Utils.readSymbolSetFromFile(home + "/data/megahal.aux");
         // TODO: Implement first message to user (formulateGreeting()?)
-        greeting = Utils.readStringListFromFile(home+"/data/megahal.grt");
-        
-        commands = Utils.readStringMapFromFile(home+"/data/command.txt");
-        
+        greeting = Utils.readStringListFromFile(home + "/data/megahal.grt");
+
+        commands = Utils.readStringMapFromFile(home + "/data/command.txt");
+
         SymbolFactory symbolFactory = new SymbolFactory(new SimpleKeywordChecker(banWords, auxWords));
         splitter = new WordNonwordSplitter(symbolFactory);
 
         model = new Model();
 
-        BufferedReader reader = new BufferedReader(new FileReader(home+"/data/megahal2.trn"));
+        BufferedReader reader = new BufferedReader(new FileReader(home + "/data/megahal2.trn"));
         String line;
         int trainCount = 0;
         while ((line = reader.readLine()) != null) {
@@ -79,58 +78,67 @@ public class Ryuji {
         //System.out.println("Trained with " + trainCount + " sentences.");
     }
 
-    public String greetings(String name){
+    public String greetings(String name) {
         StringBuffer intro = new StringBuffer();
         intro.append(" IT'S NICE TO MEET YOU ");
-        
-        try {            
+
+        try {
             //get hour
             Time t = new Time();
             String time = t.formatTime(t.getTime());
             int hour = Integer.parseInt(time.substring(0, 2));
-            
-            if ((hour >= 0) && (hour < 12)){
+
+            if ((hour >= 0) && (hour < 12)) {
                 this.greeting.add("GOOD MORNING.");
-            } else if ((hour >= 12) && (hour < 17)){
+            } else if ((hour >= 12) && (hour < 17)) {
                 this.greeting.add("GOOD AFTERNOON.");
             } else {
                 this.greeting.add("GOOD EVENING.");
             }
-            
+
             //random greeting
-            int idx = (int)(Math.random() * this.greeting.size());
-            
+            int idx = (int) (Math.random() * this.greeting.size());
+
             StringBuffer str = new StringBuffer();
             str.append(this.greeting.get(idx)).append(intro);
-                    
+
             //if there is no information of name
-            if (!name.contains("USER NOT FOUND")){                
+            if (!name.contains("USER NOT FOUND")) {
                 str.append(name);
             }
-            return str.toString();
-        } catch (ParseException ex) {
-            //if there is no information of name
-            if (!name.equalsIgnoreCase("USER NOT FOUND")){                
-                intro.append(name);
+            if (str.toString() != null) {
+                return str.toString();
+            } else {
+                return "";
             }
-            
-            return intro.toString();
+        } catch (Exception e) {
+            //if there is no information of name
+            if (name != null) {
+                if (!name.equalsIgnoreCase("USER NOT FOUND")) {
+                    intro.append(name);
+                }
+            }
+
+            if (intro.toString() != null) {
+                return intro.toString();
+            } else {
+                return "";
+            }
         }
     }
-    
-    
-    public String getIntro(String gender){
+
+    public String getIntro(String gender) {
         StringBuffer intro = new StringBuffer();
         intro.append("WHAT CAN I DO FOR YOU ");
-        
-        if ((gender != null)&&(gender.equalsIgnoreCase("female"))){
+
+        if ((gender != null) && (gender.equalsIgnoreCase("female"))) {
             intro.append("MA'AM");
-        } else if ((gender != null) && (gender.equalsIgnoreCase("male"))){
+        } else if ((gender != null) && (gender.equalsIgnoreCase("male"))) {
             intro.append("SIR");
-        }        
+        }
         return intro.toString();
     }
-    
+
     /**
      * Trains on a single line of text.
      *
@@ -144,29 +152,29 @@ public class Ryuji {
         model.train(userWords);
     }
 
-    public String getFirstWord(String str){
-        if(str.contains(" ")){
+    public String getFirstWord(String str) {
+        if (str.contains(" ")) {
             str = str.substring(0, str.indexOf(" "));
         }
         return str;
-    }    
-    
-    public boolean isCommand(String input){
+    }
+
+    public boolean isCommand(String input) {
         boolean result = false;
-        if (commands.containsKey(this.getFirstWord(input))){
+        if (commands.containsKey(this.getFirstWord(input))) {
             result = true;
         }
         return result;
     }
-    
-    public String[] command(String input){
+
+    public String[] command(String input) {
         String[] commandPair = new String[2];
-        
+
         commandPair[0] = commands.get(this.getFirstWord(input));
-        commandPair[1] = input.substring(input.indexOf(" ")+1);
+        commandPair[1] = input.substring(input.indexOf(" ") + 1);
         return commandPair;
     }
-    
+
     /**
      * Formulates a line back to the user, and also trains from the user's text.
      *
@@ -179,24 +187,22 @@ public class Ryuji {
         List<Symbol> userWords;
         try {
             userWords = splitter.split(userText.toUpperCase());
-        } catch(Exception e){
+        } catch (Exception e) {
             return null;
         }
-        
+
         // Train the brain from the user's list of symbols.
         model.train(userWords);
 
         // Find keywords in the user's input.
         List<Symbol> userKeywords = new ArrayList<Symbol>(userWords.size());
-        
+
         //userKeywords = userWords;
-        
         /*
         System.out.println("======================");
         userWords.forEach(System.out::println);
         System.out.println("======================");
-        */        
-        
+         */
         for (Symbol s : userWords) {
             if (s.isKeyword()) {
                 Symbol swap = swapWords.get(s);
@@ -206,7 +212,6 @@ public class Ryuji {
                 userKeywords.add(s);
             }
         }
-        
 
         // Generate candidate replies.
         //int candidateCount = 0;
@@ -214,19 +219,19 @@ public class Ryuji {
         List<Symbol> bestReply = null;
         int timeToTake = 1000 * 5; // 5 seconds.
         long t0 = System.currentTimeMillis();
-        
+
         while (System.currentTimeMillis() - t0 < timeToTake) {
             //System.out.print("Generating... ");
             List<Symbol> candidateReply;
-            try{
+            try {
                 candidateReply = model.generateRandomSymbols(rng, userKeywords);
-            } catch (Exception e){
+            } catch (Exception e) {
                 return null;
             }
             //candidateCount++;
             //System.out.println("Candidate: " + candidateReply);
 
-            double infoContent = model.calculateInformation(candidateReply, userKeywords);            
+            double infoContent = model.calculateInformation(candidateReply, userKeywords);
             //System.out.println("infoContent="+infoContent);
             if (infoContent > bestInfoContent && !Utils.equals(candidateReply, userWords)) {
                 bestInfoContent = infoContent;
