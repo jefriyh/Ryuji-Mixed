@@ -90,7 +90,7 @@ public class Main {
                     } else {
                        
                         state = "greeting";
-                        if(regd != "NO1" && regd != "NO2" && regd!="NO3" && regd !="REGD"){
+                        if(!"NO1".contains(regd) && !"NO2".contains(regd) && !"NO3".contains(regd) && !"REGD".contains(regd)){
                          name= regd;   
                         }
                         else{
@@ -106,7 +106,7 @@ public class Main {
                         name = name.replace("MISTER", "MISTER ");//"MISTER "+name.substring(6);
                     } else {
                         name = null;
-                        if ( regd != "NO1"){
+                        if ( !regd.contains("NO1")){
                             speechRecognition.getSpeechInstance().speak("the person you are looking for is not found");
                         }
                         
