@@ -21,6 +21,8 @@ public class MachineLearning {
             String question = null;
             if (words.contains("who are you")) {
                 question = "what is your name";
+            } else {
+                question = words;
             }
             System.out.println("[REAL TEXT] : " + words);
             System.out.println("[TEXT OVERRIDE] : " + words.contains("who are you"));
