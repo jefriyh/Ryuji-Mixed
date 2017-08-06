@@ -65,7 +65,7 @@ public class Main {
             if ((state.equals("socket")) && (name == null)) {
                 if (first == true) {
                     clientSocket.runMessage("REG;JAVA;");
-                    first = false;
+                    first = true;
                      state = "wait_init";
                 } else {
                     name = clientSocket.getMessage().toUpperCase();
@@ -111,11 +111,15 @@ public class Main {
                 if (userWords != null) {
                     if (ryuji.isCommand(userWords)) {
                         state = "command";
+                        name = null;
+                        speechRecognition.closeSpeechRecognition();
                     } 
                     else if(userWords.contains("bye")){
                         speechRecognition.getSpeechInstance().speak("Bye Bye "+name);
                         state = "command";
+                        name = null;
                         clientSocket.runMessage("DATA;EXIT;");
+                        speechRecognition.closeSpeechRecognition();
                     }
                         else {   
                         speechRecognition.start(userWords);
