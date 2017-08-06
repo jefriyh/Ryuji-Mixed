@@ -254,7 +254,6 @@ public class SpeechRecognition extends Speech {
             recognizer.deallocate();
             System.exit(1);
         }
-        openSpeechRecognition = true;
         // loop the recognition until the programm exits.
         if (openSpeechRecognition) {
                 System.out.println("Recognition Looping...");
