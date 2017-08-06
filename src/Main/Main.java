@@ -51,6 +51,7 @@ public class Main {
                     // state = "wait_init";                  
                 } else {
                     name = clientSocket.getMessage().toUpperCase();
+                    
                     if (name.contains("MISS")) {
                         name = name.replace("MISS", "MISS ");//"MISS "+name.substring(4);
                     } else {
@@ -66,17 +67,20 @@ public class Main {
                 state = "socket";
             } else if (state.equals("greeting")) {
                 System.out.print("RYUJI> ");
-                if (!name.contains("NO")) {
+               
+                if (name != null){
                     //call t2s
-                    System.out.println(ryuji.greetings(name));
-                    speechRecognition.getSpeechInstance().speak(ryuji.greetings(name));
-                    speechRecognition.getSpeechInstance().speak("What can I do for you?");
-                } else {
-                    //call t2s                    
                     out.println(ryuji.greetings(name));
                     speechRecognition.getSpeechInstance().speak(ryuji.greetings(name));
+                    speechRecognition.getSpeechInstance().speak("What can I do for you?");
+                
+                } else {
+                    //call t2s
+                    out.println(ryuji.greetings(name));
+                     speechRecognition.getSpeechInstance().speak(ryuji.greetings(name));
                     name = "USER";
                 }
+               
                 opening = false;
                 state = "conversation";
             }

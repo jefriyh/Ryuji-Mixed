@@ -82,6 +82,7 @@ public class MainRyuji {
                     state = "wait_init";
                 } else {
                     name = checkSocket().toUpperCase();
+                    //System.out.println("name: "+name);
                     if (name.contains("MISS")){
                         name = name.replace("MISS", "MISS ");//"MISS "+name.substring(4);
                     } else if (name.contains("MISTER")){
@@ -103,7 +104,7 @@ public class MainRyuji {
             
             else if (state.equals("greeting")){
                 out.print("RYUJI> ");
-                if (!name.contains("NO")){
+                if (name != null){
                     //call t2s
                     out.println(ryuji.greetings(name));
                 } else {
