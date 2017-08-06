@@ -54,6 +54,7 @@ public class Main {
         boolean opening = true;
         String userWords = null;
         while (opening) {
+            System.out.println("[STATE APP] : " + state);
             if (initial) {
                 speechRecognition.start();
                 initial = false;
@@ -65,7 +66,7 @@ public class Main {
                 if (first == true) {
                     clientSocket.runMessage("REG;JAVA;");
                     first = false;
-                    state = "wait_init";
+                    // state = "wait_init";
                 } else {
                     name = clientSocket.getMessage().toUpperCase();
                     //System.out.println("name: "+name);
@@ -78,12 +79,6 @@ public class Main {
                     }
                     state = "greeting";
                 }
-            } else if (ryuji.isCommand(userWords)) {
-               state = "command";
-            } else if (state.equals("command")) {
-               name = null;
-               state = "socket";
-               speechRecognition.closeSpeechRecognition();
             } else if (state.equals("wait_init")) {
                 String regd;
                 do {
@@ -106,11 +101,19 @@ public class Main {
                     speechRecognition.getSpeechInstance().speak(ryuji.greetings(name));
                     name = "USER";
                 }
-
-                opening = false;
+                opening = true;
                 speechRecognition.openSpeechRecognition();
                 state = "conversation";
+            } else if (state.equals("conversation")) {
+                if (ryuji.isCommand(userWords)) {
+                    state = "command";
+                }
+            } else if (state.equals("command")) {
+                name = null;
+                state = "socket";
+                speechRecognition.closeSpeechRecognition();
             }
+
         }
     }
 }
