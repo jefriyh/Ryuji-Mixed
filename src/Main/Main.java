@@ -70,7 +70,7 @@ public class Main {
                       secondRun = true;
                     }
                     
-                    first = true;
+                    first = false;
                     state = "wait_init";
                 } else {
                     name = clientSocket.getMessage().toUpperCase();
@@ -125,7 +125,7 @@ public class Main {
                         name = null;
                         clientSocket.runMessage("DATA;EXIT;");
                         speechRecognition.closeSpeechRecognition();
-//                        first = false;
+                        first = true;
                     }
                         else {   
                         speechRecognition.start(userWords);
