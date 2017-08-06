@@ -256,8 +256,7 @@ public class SpeechRecognition extends Speech {
         }
         openSpeechRecognition = true;
         // loop the recognition until the programm exits.
-        while (true) {
-            if (openSpeechRecognition) {
+        if (openSpeechRecognition) {
                 System.out.println("Recognition Looping...");
                 System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
                 response.ListCommand();
@@ -286,7 +285,6 @@ public class SpeechRecognition extends Speech {
                 }
                 System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
             }
-        }
     }
 }
 
