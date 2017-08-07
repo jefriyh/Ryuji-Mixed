@@ -21,7 +21,8 @@ public enum FindPeopleCommands {
     DENNIS("find misterdennis", "looking for information about misterdennis", ActionType.FIND_MISTER_DENNIS.id()),
     ERY("find misterery", "looking for information about misterery", ActionType.FIND_MISTER_ERY.id()),
     MAULANA("find mistermaulana", "looking for information about mistermaulana", ActionType.FIND_MISTER_MAULANA.id()),
-    MUSA("find mistermusa", "looking for information about mistermusa", ActionType.FIND_MISTER_MUSA.id());
+    MUSA("find mistermusa", "looking for information about mistermusa", ActionType.FIND_MISTER_MUSA.id()),
+    GO("go forward", "go forward", ActionType.FIND_MISTER_MUSA.id());
     
     private final String title = "Find People";
     private final String said;

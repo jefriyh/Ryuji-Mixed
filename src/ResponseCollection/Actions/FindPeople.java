@@ -22,7 +22,9 @@ public class FindPeople {
         MISTER_DENNIS("misterdennis"),
         MISTER_ERY("misterery"),
         MISTER_MAULANA("mistermaulana"),
-        MISTER_MUSA("mistermusa");
+        MISTER_MUSA("mistermusa"),
+        MISS_ASTI("missasti"),
+        FORWARD("forward");
         
         private String name;
         

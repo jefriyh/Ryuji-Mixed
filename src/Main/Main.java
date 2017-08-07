@@ -155,7 +155,7 @@ public class Main {
                 speechRecognition.openSpeechRecognition();
                 System.out.println("[words]" + userWords);
                 if (userWords != null) {
-                    if (ryuji.isCommand(userWords) || userWords.toLowerCase().contains("find")) {
+                    if (ryuji.isCommand(userWords) || userWords.toLowerCase().contains("find") || userWords.toLowerCase().contains("go ")) {
                         state = "command";
                         name = null;
                         speechRecognition.start(userWords);
