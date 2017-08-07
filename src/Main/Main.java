@@ -106,10 +106,10 @@ public class Main {
                         name = name.replace("MISTER", "MISTER ");//"MISTER "+name.substring(6);
                     } else {
                         //if ( !name.contains("NO1")){
-                        if ( name.contains("NO3")){
+                        if ( regd.contains("NO3")){
                             clientSocket.runMessage("CONV;the person you are looking for is not found;");
                             speechRecognition.getSpeechInstance().speak("the person you are looking for is not found");
-                        } else if (name.contains("NO2")){
+                        } else if (regd.contains("NO2")){
                             clientSocket.runMessage("CONV;the person you are looking for is unregistered;");
                             speechRecognition.getSpeechInstance().speak("the person you are looking for is unregistered");
                         }
