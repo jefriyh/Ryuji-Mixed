@@ -90,10 +90,14 @@ public class Main {
                     } else {
                        
                         state = "greeting";
-                        if(!"NO1".contains(regd) && !"NO2".contains(regd) && !"NO3".contains(regd) && !"REGD".contains(regd)){
-                         name= regd;   
+                        if(!"MOVE".contains(regd)&&!"NO1".contains(regd) && !"NO2".contains(regd) && !"NO3".contains(regd) && !"REGD".contains(regd)){
+                            name= regd;
+                              clientSocket.runMessage("CONV;"+ryuji.greetings(name)+";");
+                              speechRecognition.getSpeechInstance().speak(ryuji.greetings(name));
                         }
                         else if(!"MOVE".contains(regd)){
+                            name = "";
+                        }else{
                             name = "";
                         }
                         
@@ -105,7 +109,7 @@ public class Main {
                     } else if (name.contains("MISTER")) {
                         name = name.replace("MISTER", "MISTER ");//"MISTER "+name.substring(6);
                     } else {
-                        //if ( !name.contains("NO1")){
+                        if ( !name.contains("NO1")){
                         if ( regd.contains("NO3")){
                             clientSocket.runMessage("CONV;the person you are looking for is not found;");
                             speechRecognition.getSpeechInstance().speak("the person you are looking for is not found");
@@ -115,6 +119,7 @@ public class Main {
                         }
                         else if (regd.contains("MOVE")){
                             speechRecognition.getSpeechInstance().speak("moving");
+                        }
                         }
                         name = null;
                        
@@ -134,7 +139,7 @@ public class Main {
             } else if (state.equals("greeting")) {
                 System.out.print("RYUJI> ");
 
-                if (name != null) {
+                if (name != null && !secondRun) {
                     //call t2s
                     out.println(ryuji.greetings(name));
                     clientSocket.runMessage("CONV;"+ryuji.greetings(name)+";");
@@ -158,7 +163,7 @@ public class Main {
                 speechRecognition.openSpeechRecognition();
                 System.out.println("[words]" + userWords);
                 if (userWords != null) {
-                    clientSocket.runMessage("CONV;"+name+">"+userWords);
+                    clientSocket.runMessage("CONV;"+name+">"+userWords+";");
                     if (ryuji.isCommand(userWords) || userWords.toLowerCase().contains("find") || userWords.toLowerCase().contains("go ")) {
                         state = "command";
                         name = null;
