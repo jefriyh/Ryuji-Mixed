@@ -105,8 +105,13 @@ public class Main {
                     } else if (name.contains("MISTER")) {
                         name = name.replace("MISTER", "MISTER ");//"MISTER "+name.substring(6);
                     } else {
-                        if ( !name.contains("NO1")){
+                        //if ( !name.contains("NO1")){
+                        if ( name.contains("NO3")){
+                            clientSocket.runMessage("CONV;the person you are looking for is not found;");
                             speechRecognition.getSpeechInstance().speak("the person you are looking for is not found");
+                        } else if (name.contains("NO2")){
+                            clientSocket.runMessage("CONV;the person you are looking for is unregistered;");
+                            speechRecognition.getSpeechInstance().speak("the person you are looking for is unregistered");
                         }
                         name = null;
                        
@@ -129,12 +134,15 @@ public class Main {
                 if (name != null) {
                     //call t2s
                     out.println(ryuji.greetings(name));
+                    clientSocket.runMessage("CONV;"+ryuji.greetings(name)+";");
                     speechRecognition.getSpeechInstance().speak(ryuji.greetings(name));
+                    clientSocket.runMessage("CONV;What can I do for you?;");
                     speechRecognition.getSpeechInstance().speak("What can I do for you?");
 
                 } else {
                     //call t2s
                     out.println(ryuji.greetings(name));
+                    clientSocket.runMessage("CONV;"+ryuji.greetings(name)+";");
                     speechRecognition.getSpeechInstance().speak(ryuji.greetings(name));
                     name = "USER";
                 }
@@ -157,6 +165,7 @@ public class Main {
                     } 
                     else if(userWords.contains("good bye")){
                         secondRun = false;
+                        clientSocket.runMessage("CONV;Bye Bye "+name+";");
                         speechRecognition.getSpeechInstance().speak("Bye Bye "+name);
                         state = "command";
                         name = null;

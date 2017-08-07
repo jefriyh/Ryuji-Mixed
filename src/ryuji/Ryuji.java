@@ -172,6 +172,15 @@ public class Ryuji {
 
         commandPair[0] = commands.get(this.getFirstWord(input));
         commandPair[1] = input.substring(input.indexOf(" ") + 1);
+        if (commandPair[1].contains("FORWARD")){
+            commandPair[1] = "F";
+        } else if (commandPair[1].contains("BACKWARD")){
+            commandPair[1] = "B";
+        } else if (commandPair[1].contains("RIGHT")){
+            commandPair[1] = "R";
+        } else if (commandPair[1].contains("LEFT")){
+            commandPair[1] = "L";
+        }
         return commandPair;
     }
 

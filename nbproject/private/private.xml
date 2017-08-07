@@ -13,15 +13,7 @@
         </group>
         <group name="clips"/>
         <group>
-            <file>file:/home/jefri/NetBeansProjects/RyujiMix/src/library/ColorizeConsole.java</file>
-            <file>file:/home/jefri/NetBeansProjects/RyujiMix/src/ryuji/Ryuji.java</file>
-            <file>file:/home/jefri/NetBeansProjects/RyujiMix/src/library/SpeechRecognition.java</file>
-            <file>file:/home/jefri/NetBeansProjects/RyujiMix/src/library/ClientSocket.java</file>
-            <file>file:/home/jefri/NetBeansProjects/RyujiMix/src/ResponseCollection/FindPeopleCommands.java</file>
-            <file>file:/home/jefri/NetBeansProjects/RyujiMix/src/ryuji/MainRyuji.java</file>
-            <file>file:/home/jefri/NetBeansProjects/RyujiMix/src/Main/Main.java</file>
-            <file>file:/home/jefri/NetBeansProjects/RyujiMix/src/ResponseCollection/ConversationCommands.java</file>
-            <file>file:/home/jefri/NetBeansProjects/RyujiMix/src/ryuji/Client.java</file>
+            <file>file:/home/gunadarma/Documents/Ryuji_v1/Ryuji-Mixed/src/Main/Main.java</file>
         </group>
     </open-files>
 </project-private>
