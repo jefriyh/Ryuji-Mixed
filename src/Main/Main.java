@@ -93,7 +93,7 @@ public class Main {
                         if(!"NO1".contains(regd) && !"NO2".contains(regd) && !"NO3".contains(regd) && !"REGD".contains(regd)){
                          name= regd;   
                         }
-                        else{
+                        else if(!"MOVE".contains(regd)){
                             name = "";
                         }
                         
@@ -112,6 +112,9 @@ public class Main {
                         } else if (regd.contains("NO2")){
                             clientSocket.runMessage("CONV;the person you are looking for is unregistered;");
                             speechRecognition.getSpeechInstance().speak("the person you are looking for is unregistered");
+                        }
+                        else if (regd.contains("MOVE")){
+                            speechRecognition.getSpeechInstance().speak("moving");
                         }
                         name = null;
                        
@@ -155,6 +158,7 @@ public class Main {
                 speechRecognition.openSpeechRecognition();
                 System.out.println("[words]" + userWords);
                 if (userWords != null) {
+                    clientSocket.runMessage("CONV;"+name+">"+userWords);
                     if (ryuji.isCommand(userWords) || userWords.toLowerCase().contains("find") || userWords.toLowerCase().contains("go ")) {
                         state = "command";
                         name = null;
@@ -183,7 +187,6 @@ public class Main {
                 state = "socket";
                 speechRecognition.closeSpeechRecognition();
             }
-
         }
     }
 }

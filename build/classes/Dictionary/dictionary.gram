@@ -95,7 +95,14 @@ grammar basics;
         mistermaulana |
         mistermusa |
         alvian |
-        jefri 
+        jefri |
+        missasti
+    )
+);
+
+<movement> = (
+    go (
+        forward
     )
 );
 
@@ -119,7 +126,8 @@ grammar basics;
 <application> = (
     <conversation> |
     <find_people> |
-    <sentences>
+    <sentences> |
+    <movement>
 );
 
 public <speech> = (
