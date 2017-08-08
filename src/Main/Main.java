@@ -174,7 +174,7 @@ public class Main {
                     } 
                     else if(userWords.contains("good bye")){
                         secondRun = false;
-                        clientSocket.runMessage("CONV;Bye Bye "+name+";");
+                        clientSocket.runMessage("CONV;RYUJI;Bye Bye "+name+";");
                         speechRecognition.getSpeechInstance().speak("Bye Bye "+name);
                         state = "command";
                         name = null;
