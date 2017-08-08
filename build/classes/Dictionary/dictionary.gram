@@ -101,11 +101,11 @@ grammar basics;
 );
 
 <movement> = (
-    go (
+    please go (
         forward |
         backward
     ) |
-    turn (
+    please turn (
         left |
         right
     )

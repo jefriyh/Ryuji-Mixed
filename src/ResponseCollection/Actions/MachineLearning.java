@@ -35,8 +35,7 @@ public class MachineLearning {
             if (answer != null) {
                 System.out.println("[RYUJI] : " + answer);
                 clientSocket.runMessage("CONV;RYUJI;"+answer+";");
-                speech.speak(answer);
-                
+                speech.speak(answer);  
             }
         } catch (IOException e) {
 
