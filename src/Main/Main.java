@@ -92,7 +92,7 @@ public class Main {
                         state = "greeting";
                         if(!"MOVE".contains(regd)&&!"NO1".contains(regd) && !"NO2".contains(regd) && !"NO3".contains(regd) && !"REGD".contains(regd)){
                             name= regd;
-                              clientSocket.runMessage("CONV;"+ryuji.greetings(name)+";");
+                              clientSocket.runMessage("CONV;"+"RYUJI;"+ryuji.greetings(name)+";");
                               speechRecognition.getSpeechInstance().speak(ryuji.greetings(name));
                         }
                         else if(!"MOVE".contains(regd)){
@@ -111,10 +111,10 @@ public class Main {
                     } else {
                         if ( !name.contains("NO1")){
                         if ( regd.contains("NO3")){
-                            clientSocket.runMessage("CONV;the person you are looking for is not found;");
+                            clientSocket.runMessage("CONV;RYUJI;the person you are looking for is not found;");
                             speechRecognition.getSpeechInstance().speak("the person you are looking for is not found");
                         } else if (regd.contains("NO2")){
-                            clientSocket.runMessage("CONV;the person you are looking for is unregistered;");
+                            clientSocket.runMessage("CONV;RYUJI;the person you are looking for is unregistered;");
                             speechRecognition.getSpeechInstance().speak("the person you are looking for is unregistered");
                         }
                         else if (regd.contains("MOVE")){
