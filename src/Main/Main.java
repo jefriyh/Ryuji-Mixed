@@ -121,7 +121,7 @@ public class Main {
                             speechRecognition.getSpeechInstance().speak("moving");
                         }
                         }
-                        name = null;
+                        name = "USER";
                        
                         
                     }
@@ -138,7 +138,7 @@ public class Main {
                 speechRecognition.closeSpeechRecognition();
             } else if (state.equals("greeting")) {
                 System.out.print("RYUJI> ");
-                if (name != null && !secondRun) {
+                if (name != "USER" && !secondRun) {
                     secondRun = true;
                     out.println(ryuji.greetings(name));
                     clientSocket.runMessage("CONV;"+"RYUJI;"+ryuji.greetings(name)+";");
