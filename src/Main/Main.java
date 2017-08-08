@@ -85,7 +85,7 @@ public class Main {
                     if (!secondRun) {
                      name = clientSocket.getMessage().toUpperCase();
                      state = "greeting";
-                     secondRun = true;
+                     
                      System.out.println("[Get Data Name] : " + name);
                     } else {
                        
@@ -139,12 +139,14 @@ public class Main {
             } else if (state.equals("greeting")) {
                 System.out.print("RYUJI> ");
                 if (name != null && !secondRun) {
+                    secondRun = true;
                     out.println(ryuji.greetings(name));
                     clientSocket.runMessage("CONV;"+"RYUJI;"+ryuji.greetings(name)+";");
                     speechRecognition.getSpeechInstance().speak(ryuji.greetings(name));
                     clientSocket.runMessage("CONV;"+"RYUJI;"+"What can I do for you?;");
                     speechRecognition.getSpeechInstance().speak("What can I do for you?");
                 } else if(!secondRun) {
+                    secondRun = true;
                     //call t2s
                     out.println(ryuji.greetings(name));
                     clientSocket.runMessage("CONV;"+"RYUJI;"+ryuji.greetings(name)+";");
