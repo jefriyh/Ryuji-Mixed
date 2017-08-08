@@ -5,6 +5,7 @@
  */
 package ResponseCollection.Actions;
 
+import library.ClientSocket;
 import library.SpeechRecognition;
 import library.TagMatch;
 
@@ -14,7 +15,7 @@ import library.TagMatch;
  */
 public class CollegeInformation {
 
-    public CollegeInformation(SpeechRecognition speech, String header, String words) {
+    public CollegeInformation(ClientSocket clientSocket, SpeechRecognition speech, String header, String words) {
 //        try {
         //            Ryuji ryuji = new Ryuji();
 //            String answer = ryuji.formulateReply(words);
@@ -32,6 +33,7 @@ public class CollegeInformation {
         String response = matchers.getMatch(1, header, tags);
         System.out.println("[Machine Learning] question : " + words);
         System.out.println("[Machine Learning] answer   : " + response);
+        clientSocket.runMessage("CONV;"+"RYUJI;"+response+";");
         if (response != null) {
             speech.speak(response);
         }

@@ -92,8 +92,8 @@ public class Main {
                         state = "greeting";
                         if(!"MOVE".contains(regd)&&!"NO1".contains(regd) && !"NO2".contains(regd) && !"NO3".contains(regd) && !"REGD".contains(regd)){
                             name= regd;
-                              clientSocket.runMessage("CONV;"+"RYUJI;"+ryuji.greetings(name)+";");
-                              speechRecognition.getSpeechInstance().speak(ryuji.greetings(name));
+                            clientSocket.runMessage("CONV;"+"RYUJI;"+ryuji.greetings(name)+";");
+                            speechRecognition.getSpeechInstance().speak(ryuji.greetings(name));
                         }
                         else if(!"MOVE".contains(regd)){
                             name = "";
@@ -138,16 +138,13 @@ public class Main {
                 speechRecognition.closeSpeechRecognition();
             } else if (state.equals("greeting")) {
                 System.out.print("RYUJI> ");
-
                 if (name != null && !secondRun) {
-                    //call t2s
                     out.println(ryuji.greetings(name));
                     clientSocket.runMessage("CONV;"+"RYUJI;"+ryuji.greetings(name)+";");
                     speechRecognition.getSpeechInstance().speak(ryuji.greetings(name));
                     clientSocket.runMessage("CONV;"+"RYUJI;"+"What can I do for you?;");
                     speechRecognition.getSpeechInstance().speak("What can I do for you?");
-
-                } else {
+                } else if(!secondRun) {
                     //call t2s
                     out.println(ryuji.greetings(name));
                     clientSocket.runMessage("CONV;"+"RYUJI;"+ryuji.greetings(name)+";");
@@ -165,7 +162,8 @@ public class Main {
                 if (userWords != null) {
                     clientSocket.runMessage("CONV;"+name+";"+userWords+";");
                     if (ryuji.isCommand(userWords) || userWords.toLowerCase().contains("find")
-                            || userWords.toLowerCase().contains("go ")||userWords.toLowerCase().contains("turn ")) {
+                            || userWords.toLowerCase().contains("go ")
+                            ||userWords.toLowerCase().contains("turn ")) {
                         state = "command";
                         name = null;
                         speechRecognition.start(userWords);
@@ -182,7 +180,7 @@ public class Main {
                         clientSocket.runMessage("DATA;EXIT;");
                         speechRecognition.closeSpeechRecognition();    
                     }
-                        else {   
+                    else {   
                         speechRecognition.start(userWords);
                     }
                     

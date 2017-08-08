@@ -80,16 +80,16 @@ public enum ActionType {
         if(type == ActionType.BROWSE_YOUTUBE.id()){new Browsing(Browsing.Browse.YOUTUBE);}
         if(type == ActionType.BROWSE_ALLKPOP.id()){new Browsing(Browsing.Browse.ALLKPOP);}
         if(type == ActionType.BROWSE_TWITTER.id()){new Browsing(Browsing.Browse.TWITTER);}
-        if(type == ActionType.MEANING.id()){new CollegeInformation(speech, "meaning"  , userWords);}
-        if(type == ActionType.DEFINE.id()){new CollegeInformation(speech, "defines", userWords);}
-        if(type == ActionType.MISSION.id()){new CollegeInformation(speech, "mission", userWords);}
-        if(type == ActionType.STUDENT.id()){new CollegeInformation(speech, "student", userWords);}
-        if(type == ActionType.LISTED.id()){new CollegeInformation(speech, "listed", userWords);}
-        if(type == ActionType.EQUALIZED.id()){new CollegeInformation(speech, "equalized", userWords);}
-        if(type == ActionType.CHOSEN.id()){new CollegeInformation(speech, "chosen", userWords);}
-        if(type == ActionType.LOCATED.id()){new CollegeInformation(speech, "located", userWords);}
-        if(type == ActionType.BUILT.id()){new CollegeInformation(speech, "built", userWords);}
-        if(type == ActionType.FOUNDED.id()){new CollegeInformation(speech, "founded", userWords);}
+        if(type == ActionType.MEANING.id()){new CollegeInformation(clientSocket,speech, "meaning"  , userWords);}
+        if(type == ActionType.DEFINE.id()){new CollegeInformation(clientSocket,speech, "defines", userWords);}
+        if(type == ActionType.MISSION.id()){new CollegeInformation(clientSocket,speech, "mission", userWords);}
+        if(type == ActionType.STUDENT.id()){new CollegeInformation(clientSocket,speech, "student", userWords);}
+        if(type == ActionType.LISTED.id()){new CollegeInformation(clientSocket,speech, "listed", userWords);}
+        if(type == ActionType.EQUALIZED.id()){new CollegeInformation(clientSocket,speech, "equalized", userWords);}
+        if(type == ActionType.CHOSEN.id()){new CollegeInformation(clientSocket,speech, "chosen", userWords);}
+        if(type == ActionType.LOCATED.id()){new CollegeInformation(clientSocket,speech, "located", userWords);}
+        if(type == ActionType.BUILT.id()){new CollegeInformation(clientSocket, speech, "built", userWords);}
+        if(type == ActionType.FOUNDED.id()){new CollegeInformation(clientSocket,speech, "founded", userWords);}
         if(type == ActionType.FIND_ALVIAN.id()){FindPeople.find(clientSocket, FindPeople.People.ALVIAN);}
         if(type == ActionType.FIND_ANNA.id()){FindPeople.find(clientSocket, FindPeople.People.ANNA);}
         if(type == ActionType.FIND_JEFRI.id()){FindPeople.find(clientSocket, FindPeople.People.JEFRI);}
