@@ -142,15 +142,15 @@ public class Main {
                 if (name != null && !secondRun) {
                     //call t2s
                     out.println(ryuji.greetings(name));
-                    clientSocket.runMessage("CONV;"+ryuji.greetings(name)+";");
+                    clientSocket.runMessage("CONV;"+"RYUJI;"+ryuji.greetings(name)+";");
                     speechRecognition.getSpeechInstance().speak(ryuji.greetings(name));
-                    clientSocket.runMessage("CONV;What can I do for you?;");
+                    clientSocket.runMessage("CONV;"+"RYUJI;"+"What can I do for you?;");
                     speechRecognition.getSpeechInstance().speak("What can I do for you?");
 
                 } else {
                     //call t2s
                     out.println(ryuji.greetings(name));
-                    clientSocket.runMessage("CONV;"+ryuji.greetings(name)+";");
+                    clientSocket.runMessage("CONV;"+"RYUJI;"+ryuji.greetings(name)+";");
                     speechRecognition.getSpeechInstance().speak(ryuji.greetings(name));
                     name = "USER";
                 }
@@ -179,8 +179,7 @@ public class Main {
                         state = "command";
                         name = null;
                         clientSocket.runMessage("DATA;EXIT;");
-                        speechRecognition.closeSpeechRecognition();
-                        
+                        speechRecognition.closeSpeechRecognition();    
                     }
                         else {   
                         speechRecognition.start(userWords);
