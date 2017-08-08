@@ -24,7 +24,10 @@ public class FindPeople {
         MISTER_MAULANA("mistermaulana"),
         MISTER_MUSA("mistermusa"),
         MISS_ASTI("missasti"),
-        FORWARD("forward");
+        FORWARD("forward"),
+        BACKWARD("backward"),
+        LEFT("left"),
+        RIGHT("right");
         
         private String name;
         

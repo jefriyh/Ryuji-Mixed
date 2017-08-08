@@ -23,7 +23,10 @@ public enum FindPeopleCommands {
     MAULANA("find mistermaulana", "looking for information about mistermaulana", ActionType.FIND_MISTER_MAULANA.id()),
     MUSA("find mistermusa", "looking for information about mistermusa", ActionType.FIND_MISTER_MUSA.id()),
     ASTI("find missasti", "looking for information about missasti", ActionType.FIND_MISS_ASTI.id()),
-    GO("go forward", "go forward", ActionType.GO_FORWARD.id());
+    GO_FORWARD("go forward", "go forward", ActionType.GO_FORWARD.id()),
+    GO_BACKWARD("go backward", "go backward", ActionType.GO_BACKWARD.id()),
+    TURN_LEFT("turn left", "turn left", ActionType.TURN_LEFT.id()),
+    TURN_RIGHT("turn right", "turn right", ActionType.TURN_RIGHT.id());
     
     private final String title = "Find People";
     private final String said;
