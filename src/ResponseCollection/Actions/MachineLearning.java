@@ -6,6 +6,7 @@
 package ResponseCollection.Actions;
 
 import java.io.IOException;
+import library.ClientSocket;
 import library.SpeechRecognition;
 import ryuji.Ryuji;
 
@@ -14,7 +15,7 @@ import ryuji.Ryuji;
  * @author alvian
  */
 public class MachineLearning {
-    public MachineLearning(SpeechRecognition speech, String words) {
+    public MachineLearning(ClientSocket clientSocket, SpeechRecognition speech, String words) {
         try {
             Ryuji ryuji = new Ryuji();
             String answer = null;
@@ -33,7 +34,9 @@ public class MachineLearning {
             answer = ryuji.formulateReply(question);
             if (answer != null) {
                 System.out.println("[RYUJI] : " + answer);
+                clientSocket.runMessage("CONV;RYUJI;"+answer+";");
                 speech.speak(answer);
+                
             }
         } catch (IOException e) {
 

@@ -138,7 +138,7 @@ public class Main {
                 speechRecognition.closeSpeechRecognition();
             } else if (state.equals("greeting")) {
                 System.out.print("RYUJI> ");
-                if (name != "USER" && !secondRun) {
+                if (name.equals("USER") && !secondRun) {
                     secondRun = true;
                     out.println(ryuji.greetings(name));
                     clientSocket.runMessage("CONV;"+"RYUJI;"+ryuji.greetings(name)+";");

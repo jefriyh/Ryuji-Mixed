@@ -104,8 +104,8 @@ public enum ActionType {
         if(type == ActionType.GO_BACKWARD.id()){FindPeople.find(clientSocket, FindPeople.People.BACKWARD);}
         if(type == ActionType.TURN_LEFT.id()){FindPeople.find(clientSocket, FindPeople.People.LEFT);}
         if(type == ActionType.TURN_RIGHT.id()){FindPeople.find(clientSocket, FindPeople.People.RIGHT);}
-        if(type == ActionType.MACHINE_LEARNING_WHAT.id()){new MachineLearning(speech, userWords);}
-        if(type == ActionType.MACHINE_LEARNING_WHO.id()){new MachineLearning(speech, userWords);}
+        if(type == ActionType.MACHINE_LEARNING_WHAT.id()){new MachineLearning(clientSocket,speech, userWords);}
+        if(type == ActionType.MACHINE_LEARNING_WHO.id()){new MachineLearning(clientSocket,speech, userWords);}
         if(type == ActionType.NICE_TO_MEET_YOU.id()){Conversation.tell(clientSocket, Conversation.Speak.NICE_TO_MEET_YOU);}
         if(type == ActionType.CAN_YOU_HELP.id()){Conversation.tell(clientSocket, Conversation.Speak.CAN_YOU_HELP_ME);}
         if(type == ActionType.GOOD_BYE.id()){Conversation.tell(clientSocket, Conversation.Speak.GOOD_BYE);}
