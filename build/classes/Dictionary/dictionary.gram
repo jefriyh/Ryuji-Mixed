@@ -102,7 +102,12 @@ grammar basics;
 
 <movement> = (
     go (
-        forward
+        forward |
+        backward
+    ) |
+    turn (
+        left |
+        right
     )
 );
 
