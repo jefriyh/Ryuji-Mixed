@@ -138,7 +138,7 @@ public class Main {
                 speechRecognition.closeSpeechRecognition();
             } else if (state.equals("greeting")) {
                 System.out.print("RYUJI> ");
-                if (name.equals("USER") && !secondRun) {
+                if (!name.equals("USER") && !secondRun) {
                     secondRun = true;
                     out.println(ryuji.greetings(name));
                     clientSocket.runMessage("CONV;"+"RYUJI;"+ryuji.greetings(name)+";");
@@ -150,7 +150,7 @@ public class Main {
                     //call t2s
                     out.println(ryuji.greetings(name));
                     clientSocket.runMessage("CONV;"+"RYUJI;"+ryuji.greetings(name)+";");
-                    speechRecognition.getSpeechInstance().speak(ryuji.greetings(name));
+                    speechRecognition.getSpeechInstance().speak(ryuji.greetings(null));
                     name = "USER";
                 }
                 opening = true;
