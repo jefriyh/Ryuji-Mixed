@@ -14,7 +14,9 @@
         <group name="clips"/>
         <group>
             <file>file:/home/jefri/NetBeansProjects/Ryuji-Mixed/src/Main/Main.java</file>
+            <file>file:/home/jefri/NetBeansProjects/Ryuji-Mixed/src/ResponseCollection/FindPeopleCommands.java</file>
             <file>file:/home/jefri/NetBeansProjects/Ryuji-Mixed/src/ResponseCollection/BrowsingCommands.java</file>
+            <file>file:/home/jefri/NetBeansProjects/Ryuji-Mixed/src/ResponseCollection/MachineLearningCommands.java</file>
         </group>
     </open-files>
 </project-private>
