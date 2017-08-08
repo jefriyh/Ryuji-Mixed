@@ -164,7 +164,8 @@ public class Main {
                 System.out.println("[words]" + userWords);
                 if (userWords != null) {
                     clientSocket.runMessage("CONV;"+name+";"+userWords+";");
-                    if (ryuji.isCommand(userWords) || userWords.toLowerCase().contains("find") || userWords.toLowerCase().contains("go ")) {
+                    if (ryuji.isCommand(userWords) || userWords.toLowerCase().contains("find")
+                            || userWords.toLowerCase().contains("go ")||userWords.toLowerCase().contains("turn ")) {
                         state = "command";
                         name = null;
                         speechRecognition.start(userWords);
