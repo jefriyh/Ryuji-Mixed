@@ -120,7 +120,27 @@ grammar basics;
 
 <basic_question> = (
    what (
-    (is|are) [the] vision of <gunadarma>
+    ((is|are) [the] vision of <gunadarma>) |
+    (program [does] <gunadarma> offer) |
+    ((is) professional [study] program [offer]) |
+    ((is) bachelor program [offer]) |
+    ((is) postgraduate program [offer]) |
+    (information technology program [offer] [to study]) |
+    (health program [offer] [to study]) |
+    (faculty of computer science program [offer] [to study]) |
+    (economy faculty program [offer] [to study]) |
+    (faculty of industrial technology program [offer] [to study]) |
+    (faculty of civil and planning engineering program [offer] [to study]) |
+    (faculty of psychology program [offer] [to study]) |
+    (faculty of letters program [offer] [to study]) |
+    (postgraduate magisterial program [offer] [to study]) |
+    (postgraduate doctoral program [offer] [to study]) |
+    ((is) magisterial program) |
+    ((is) doctoral program) |
+    ((is) doctoral program in information technology) |
+    ((is) doctoral program in economics) |
+    ((is) informatics management professional study program) |
+    ((is) computer engineering professional study program)
    ) |
    who (
       are you |
